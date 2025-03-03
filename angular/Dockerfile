@@ -40,8 +40,9 @@ ARG APP_NAME=my-angular-app
 # Copy the static build output from the build stage to Nginx's default HTML serving directory
 COPY --link --from=builder /app/dist/${APP_NAME}/browser /usr/share/nginx/html
 
-# Expose port 80 to allow HTTP traffic
-EXPOSE 80
+# Expose port 8080 to allow HTTP traffic
+# Note: The default NGINX container now listens on port 8080 instead of 80 
+EXPOSE 8080
 
 # Start Nginx directly with custom config
 ENTRYPOINT ["nginx", "-c", "/etc/nginx/nginx.conf"]
