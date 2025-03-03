@@ -62,7 +62,7 @@ The following variables are defined in the `Taskfile` and `Makefile` and can be 
 | `IMAGE_NAME`     | The name of the Docker image.                                                        | `vue-js-app`           |
 | `CONTAINER_NAME` | The name of the Docker container.                                                    | `vue-js-app-container` |
 | `HOST_PORT`      | The port on the host machine that the container will map to.                         | `3000`                 |
-| `CONTAINER_PORT` | The port inside the Docker container where Nginx serves the application.             | `80`                   |
+| `CONTAINER_PORT` | The port inside the Docker container where Nginx serves the application.             | `8080`                   |
 | `DOCKERFILE`     | The Dockerfile to use.                                                               | `Dockerfile`           |
 | `NODE_VERSION`   | The version of Node.js used in the base image. Can be updated for easier migrations. | `22.14.0-alpine`       |
 | `NGINX_VERSION`  | The version of Nginx used in the export configuration.                               | `alpine3.21`           |
@@ -75,7 +75,7 @@ If you prefer to build and run the container manually, use the following command
 
 ```sh
 docker build -t vue-js-app .
-docker run -d --name vue-js-app-container -p 3000:80 vue-js-app
+docker run -d --name vue-js-app-container -p 3000:8080 vue-js-app
 ```
 
 ---
