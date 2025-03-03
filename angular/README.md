@@ -63,7 +63,7 @@ The following variables are defined in the `Taskfile` and `Makefile` and can be 
 | `IMAGE_NAME`     | The name of the Docker image.                                                        | `angular-app`           |
 | `CONTAINER_NAME` | The name of the Docker container.                                                    | `angular-app-container` |
 | `HOST_PORT`      | The port on the host machine that the container will map to.                         | `4200`                  |
-| `CONTAINER_PORT` | The port inside the Docker container where Nginx serves the application.             | `80`                    |
+| `CONTAINER_PORT` | The port inside the Docker container where Nginx serves the application.             | `8080`                    |
 | `DOCKERFILE`     | The Dockerfile to use. Avaliable `DOCKERFILE` and `Dockerfile.server`                | `Dockerfile`            |
 | `NODE_VERSION`   | The version of Node.js used in the base image. Can be updated for easier migrations. | `22.14.0-alpine`        |
 | `NGINX_VERSION`  | The version of Nginx used in the export configuration.                               | `alpine3.21`            |
@@ -76,7 +76,7 @@ If you prefer to build and run the container manually, use the following command
 
 ```sh
 docker build -t angular-app .
-docker run -d --name angular-app-container -p 42000:80 angular-app
+docker run -d --name angular-app-container -p 42000:8080 angular-app
 ```
 
 ---

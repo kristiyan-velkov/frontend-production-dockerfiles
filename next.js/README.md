@@ -63,7 +63,7 @@ The following variables are defined in the `Taskfile` and `Makefile` and can be 
 | `IMAGE_NAME`     | The name of the Docker image.                                                         | `next-js-app`           |
 | `CONTAINER_NAME` | The name of the Docker container.                                                     | `next-js-app-container` |
 | `HOST_PORT`      | The port on the host machine that the container will map to.                          | `3000`                  |
-| `CONTAINER_PORT` | The port inside the Docker container where Nginx serves the application.              | `80`                    |
+| `CONTAINER_PORT` | The port inside the Docker container where Nginx serves the application.              | `8080`                    |
 | `DOCKERFILE`     | The Dockerfile to use.                                                                | `Dockerfile.export`     |
 | `NODE_VERSION`   | The version of Node.js used in the base image. Can be updated for easier migrations.  | `22.14.0-alpine`        |
 | `NGINX_VERSION`  | The version of Nginx used in the export configuration. Can be customized or upgraded. | `alpine3.21`            |
