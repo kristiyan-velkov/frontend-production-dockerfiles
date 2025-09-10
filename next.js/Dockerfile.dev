@@ -1,5 +1,5 @@
 # Use a lightweight Node.js base image
-ARG NODE_VERSION=22.14.0-alpine
+ARG NODE_VERSION=24.7.0-alpine
 FROM node:${NODE_VERSION} AS base
 
 # Set working directory inside the container

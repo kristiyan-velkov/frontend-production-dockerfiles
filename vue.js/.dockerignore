@@ -1,50 +1,81 @@
-# Ignore dependencies and build output
+# -------------------------------
+# Dependency directories
+# -------------------------------
 node_modules/
+
+# -------------------------------
+# Production and build outputs
+# -------------------------------
 dist/
 out/
-.tmp/
-.cache/
+build/
+public/build/
 
-# Ignore Vue, Vite, and Webpack-specific build artifacts
+# -------------------------------
+# Vite, VuePress, and cache dirs
+# -------------------------------
 .vite/
 .vitepress/
-.npm/
+.cache/
+.tmp/
+
+# -------------------------------
+# Test output and coverage
+# -------------------------------
 coverage/
+reports/
 jest/
 cypress/
 cypress/screenshots/
 cypress/videos/
-reports/
 
-# Ignore environment and config files (sensitive data)
+# -------------------------------
+# Environment and config files
+# -------------------------------
 *.env*
-!.env.production  # Allow production env file if needed
+!.env.production    # Keep production env if needed
+*.local
 *.log
 
-# Ignore TypeScript build artifacts (if using TypeScript)
+# -------------------------------
+# TypeScript artifacts
+# -------------------------------
 *.tsbuildinfo
 
-# Ignore lockfiles (optional if using Docker for package installation)
+# -------------------------------
+# Editor and IDE config
+# -------------------------------
+.vscode/
+.idea/
+*.swp
+
+# -------------------------------
+# System files
+# -------------------------------
+.DS_Store
+Thumbs.db
+
+# -------------------------------
+# Lockfiles (optional)
+# -------------------------------
+package-lock.json
+yarn.lock
+pnpm-lock.yaml
 npm-debug.log*
 yarn-debug.log*
 yarn-error.log*
 pnpm-debug.log*
 
-# Ignore local development files
+# -------------------------------
+# Git files
+# -------------------------------
 .git/
 .gitignore
-.vscode/
-.idea/
-*.swp
-.DS_Store
-Thumbs.db
 
-# Ignore Docker-related files (to avoid copying unnecessary configs)
+# -------------------------------
+# Docker-related files
+# -------------------------------
 Dockerfile
 .dockerignore
 docker-compose.yml
 docker-compose.override.yml
-
-# Ignore build-specific cache files
-*.DS_Store
-*.lock

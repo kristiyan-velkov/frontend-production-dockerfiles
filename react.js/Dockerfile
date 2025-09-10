@@ -1,8 +1,8 @@
 # =========================================
 # Stage 1: Build the React.js Application
 # =========================================
-ARG NODE_VERSION=22.14.0-alpine
-ARG NGINX_VERSION=alpine3.21
+ARG NODE_VERSION=24.7.0-alpine
+ARG NGINX_VERSION=alpine3.22
 
 # Use a lightweight Node.js image for building (customizable via ARG)
 FROM node:${NODE_VERSION} AS builder
@@ -14,7 +14,7 @@ WORKDIR /app
 COPY --link package.json package-lock.json ./
 
 # Install project dependencies using npm ci (ensures a clean, reproducible install)
-RUN npm ci
+RUN --mount=type=cache,target=/root/.npm npm ci
 
 # Copy the rest of the application source code into the container
 COPY --link . .
@@ -44,4 +44,3 @@ EXPOSE 8080
 # Start Nginx directly with custom config
 ENTRYPOINT ["nginx", "-c", "/etc/nginx/nginx.conf"]
 CMD ["-g", "daemon off;"]
-
