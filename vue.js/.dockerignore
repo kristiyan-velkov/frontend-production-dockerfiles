@@ -79,3 +79,17 @@ Dockerfile
 .dockerignore
 docker-compose.yml
 docker-compose.override.yml
+
+# =========================================
+# # Ignore AI-related files and caches
+# =========================================
+*.ai
+*.aider*
+*.chatgpt*
+*.cursor/
+__pycache__/
+openai/
+kiro/
+anthropic/
+ai_outputs/
+ai_cache/

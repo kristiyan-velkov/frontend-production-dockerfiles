@@ -1,29 +1,26 @@
-# =========================================
 # Ignore dependencies and build output
-# =========================================
 node_modules/
 dist/
 out/
+.next/
+.vercel/
 .tmp/
 .cache/
 
-# Ignore Angular CLI, Webpack, and build artifacts
-.angular/
+# Ignore Vite, Webpack, and React-specific build artifacts
 .vite/
 .vitepress/
-.coverage/
+.eslintcache
 .npm/
+coverage/
 jest/
 cypress/
 cypress/screenshots/
 cypress/videos/
 reports/
 
-# =========================================
 # Ignore environment and config files (sensitive data)
-# =========================================
 *.env*
-!.env.production  # Allow production env file if needed
 *.log
 
 # Ignore TypeScript build artifacts
@@ -35,9 +32,7 @@ yarn-debug.log*
 yarn-error.log*
 pnpm-debug.log*
 
-# =========================================
 # Ignore local development files
-# =========================================
 .git/
 .gitignore
 .vscode/
@@ -46,16 +41,23 @@ pnpm-debug.log*
 .DS_Store
 Thumbs.db
 
-# =========================================
 # Ignore Docker-related files (to avoid copying unnecessary configs)
-# =========================================
 Dockerfile
 .dockerignore
 docker-compose.yml
 docker-compose.override.yml
 
-# =========================================
 # Ignore build-specific cache files
-# =========================================
-*.DS_Store
 *.lock
+
+# Ignore AI-related files and caches
+*.ai
+*.aider*
+*.chatgpt*
+*.cursor/
+__pycache__/
+openai/
+kiro/
+anthropic/
+ai_outputs/
+ai_cache/
