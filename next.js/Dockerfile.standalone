@@ -3,7 +3,7 @@
 # ============================================
 
 # Use an official Node.js Alpine image (customizable via ARG)
-ARG NODE_VERSION=24.7.0-alpine
+ARG NODE_VERSION=24.11.1-alpine
 FROM node:${NODE_VERSION} AS base
 
 # Set the working directory inside the container
@@ -14,7 +14,6 @@ COPY --link package.json package-lock.json ./
 
 # Set build-time environment variables
 ENV NODE_ENV=production
-
 
 # Install dependencies using npm ci (ensures a clean, reproducible install)
 RUN npm ci --omit=dev && npm cache clean --force
@@ -39,10 +38,6 @@ RUN npm run build
 # Use the same Node.js version for the final production container
 FROM node:${NODE_VERSION} AS runner
 
-# Use a built-in non-root user for security best practices
-USER node
-
-
 # Set the port for the Next.js standalone server (default is 3000)
 ENV PORT=80
 
@@ -55,7 +50,10 @@ WORKDIR /app
 # Copy only necessary files from the builder stage to keep the image minimal
 COPY --link --from=builder /app/.next/standalone ./      
 COPY --link --from=builder /app/.next/static ./.next/static
-COPY --link --from=builder /app/public ./public              
+COPY --link --from=builder /app/public ./public     
+
+# Use a built-in non-root user for security best practices
+USER node
 
 # Expose port 80 to allow HTTP traffic
 EXPOSE 80
