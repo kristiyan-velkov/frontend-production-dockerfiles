@@ -50,3 +50,17 @@ docker-compose.override.yml
 # Ignore build-specific cache files
 *.DS_Store
 *.lock
+
+# =========================================
+# # Ignore AI-related files and caches
+# =========================================
+*.ai
+*.aider*
+*.chatgpt*
+*.cursor/
+__pycache__/
+openai/
+kiro/
+anthropic/
+ai_outputs/
+ai_cache/

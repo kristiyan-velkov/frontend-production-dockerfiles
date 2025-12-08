@@ -5,7 +5,7 @@ CONTAINER_NAME = analog-js-container
 HOST_PORT = 3000
 CONTAINER_PORT = 3000
 DOCKERFILE = Dockerfile
-NODE_VERSION = 24.7.0-alpine
+NODE_VERSION = 24.11.1-alpine
 NODE_ENV=production
 
 # Default target
