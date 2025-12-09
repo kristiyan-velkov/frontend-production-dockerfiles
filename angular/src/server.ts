@@ -5,11 +5,9 @@ import {
   writeResponseToNodeResponse,
 } from '@angular/ssr/node';
 import express from 'express';
-import { dirname, resolve } from 'node:path';
-import { fileURLToPath } from 'node:url';
+import { join } from 'node:path';
 
-const serverDistFolder = dirname(fileURLToPath(import.meta.url));
-const browserDistFolder = resolve(serverDistFolder, '../browser');
+const browserDistFolder = join(import.meta.dirname, '../browser');
 
 const app = express();
 const angularApp = new AngularNodeAppEngine();
@@ -20,7 +18,7 @@ const angularApp = new AngularNodeAppEngine();
  *
  * Example:
  * ```ts
- * app.get('/api/**', (req, res) => {
+ * app.get('/api/{*splat}', (req, res) => {
  *   // Handle API request
  * });
  * ```
@@ -40,7 +38,7 @@ app.use(
 /**
  * Handle all other requests by rendering the Angular application.
  */
-app.use('/**', (req, res, next) => {
+app.use((req, res, next) => {
   angularApp
     .handle(req)
     .then((response) =>
@@ -50,12 +48,16 @@ app.use('/**', (req, res, next) => {
 });
 
 /**
- * Start the server if this module is the main entry point.
+ * Start the server if this module is the main entry point, or it is ran via PM2.
  * The server listens on the port defined by the `PORT` environment variable, or defaults to 4000.
  */
-if (isMainModule(import.meta.url)) {
+if (isMainModule(import.meta.url) || process.env['pm_id']) {
   const port = process.env['PORT'] || 4000;
-  app.listen(port, () => {
+  app.listen(port, (error) => {
+    if (error) {
+      throw error;
+    }
+
     console.log(`Node Express server listening on http://localhost:${port}`);
   });
 }

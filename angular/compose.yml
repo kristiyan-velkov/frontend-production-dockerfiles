@@ -1,0 +1,31 @@
+services:
+  # Static build served with Nginx
+  angular-static:
+    build:
+      context: .
+      dockerfile: Dockerfile
+      args:
+        NODE_VERSION: 24.11.1-alpine
+        NGINX_VERSION: alpine3.22
+        APP_NAME: my-angular-app
+    ports:
+      - "8080:8080"
+    restart: unless-stopped
+    container_name: angular-static
+
+  # SSR build with Node.js
+  angular-ssr:
+    build:
+      context: .
+      dockerfile: Dockerfile.server
+      args:
+        NODE_VERSION: 24.11.1-alpine
+        APP_NAME: my-angular-app
+    environment:
+      NODE_ENV: production
+      PORT: 3000
+    ports:
+      - "3000:3000"
+    restart: unless-stopped
+    container_name: angular-ssr
+
