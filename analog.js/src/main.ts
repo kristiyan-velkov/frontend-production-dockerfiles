@@ -1,7 +1,7 @@
 import 'zone.js';
 import { bootstrapApplication } from '@angular/platform-browser';
 
-import App from './app/app-root.ag';
+__APP_COMPONENT_IMPORT__
 import { appConfig } from './app/app.config';
 
-bootstrapApplication(App, appConfig);
+bootstrapApplication(__APP_COMPONENT__, appConfig);

@@ -32,6 +32,7 @@ WORKDIR /app
 # Set environment variable for production
 ENV NODE_ENV=production
 ENV PORT=3000
+ENV HOST=0.0.0.0
 
 # Copy the built server and client assets from the builder stage
 COPY --link --from=builder /app/dist/analog ./

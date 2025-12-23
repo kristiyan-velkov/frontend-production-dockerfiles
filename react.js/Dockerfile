@@ -1,7 +1,7 @@
 # =========================================
 # Stage 1: Build the React.js Application
 # =========================================
-ARG NODE_VERSION=24.11.1-alpine
+ARG NODE_VERSION=24-alpine
 ARG NGINX_VERSION=alpine3.22
 
 # Use a lightweight Node.js image for building (customizable via ARG)
@@ -25,7 +25,6 @@ RUN npm run build
 # =========================================
 # Stage 2: Prepare Nginx to Serve Static Files
 # =========================================
-
 FROM nginxinc/nginx-unprivileged:${NGINX_VERSION} AS runner
 
 # Copy custom Nginx config
@@ -44,3 +43,4 @@ EXPOSE 8080
 # Start Nginx directly with custom config
 ENTRYPOINT ["nginx", "-c", "/etc/nginx/nginx.conf"]
 CMD ["-g", "daemon off;"]
+

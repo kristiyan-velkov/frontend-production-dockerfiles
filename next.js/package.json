@@ -1,38 +1,26 @@
 {
-  "name": "my-app",
-  "version": "0.0.1",
-  "homepage": "https://github.com/kristiyan-velkov/frontend-prod-dockerfiles",
-  "author": {
-    "name": "Kristiyan Velkov",
-    "url": "https://www.linkedin.com/in/kristiyan-velkov-763130b3/"
-  },
-  "bugs": {
-    "url": "https://github.com/kristiyan-velkov/frontend-prod-dockerfiles/issues"
-  },
-  "funding": {
-    "type": "github",
-    "url": "https://github.com/sponsors/kristiyan-velkov"
-  },
+  "name": "nextjs",
+  "version": "0.1.0",
   "private": true,
   "scripts": {
-    "dev": "next dev --turbopack",
+    "dev": "next dev",
     "build": "next build",
     "start": "next start",
-    "lint": "next lint"
+    "lint": "eslint"
   },
   "dependencies": {
-    "next": "^15.1.6",
-    "react": "^19.0.0",
-    "react-dom": "^19.0.0",
-    "tailwindcss": "^3.4.1"
+    "next": "16.0.10",
+    "react": "19.2.1",
+    "react-dom": "19.2.1"
   },
   "devDependencies": {
+    "@tailwindcss/postcss": "^4",
     "@types/node": "^20",
-    "@types/react": "^19.0.8",
-    "@types/react-dom": "^19.0.3",
-    "eslint": "^8",
-    "eslint-config-next": "15.0.3",
-    "postcss": "^8",
+    "@types/react": "^19",
+    "@types/react-dom": "^19",
+    "eslint": "^9",
+    "eslint-config-next": "16.0.10",
+    "tailwindcss": "^4",
     "typescript": "^5"
   }
 }

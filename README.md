@@ -1,6 +1,6 @@
 # Frontend Prod Dockerfiles
 
-Production-ready **Dockerfiles** for **React.js, Angular, Vue.js, Next.js, Remix.js,Analog.js, Nuxt.js** applications.
+Production-ready **Dockerfiles** for **React.js, Angular, Vue.js, Next.js, Remix.js (React Router), Analog.js, Nuxt.js** applications.
 
 These Dockerfiles are optimized for **performance, security, and minimal image size** to ensure efficient and scalable deployments.
 
@@ -19,13 +19,15 @@ These Dockerfiles are optimized for **performance, security, and minimal image s
 
 ## Supported Frameworks / Libraries
 
-- **React.js** - v19 ✅
-- **Next.js** v15 ✅
-- **Remix.js** - v2 ✅
-- **Angular** - v19 ✅
-- **Analog.js** - v1 ✅
-- **Vue.js** - v3 ✅
-- **Nuxt.js** - v3 ✅
+| Framework        | Version            | Directory  |
+| ---------------- | ------------------ | ---------- |
+| ✅ **React.js**  | v19.2              | `reactjs/` |
+| ✅ **Next.js**   | v16                | `nextjs/`  |
+| ✅ **Remix.js**  | React Router v7.10 | `remixjs/` |
+| ✅ **Angular**   | v21                | `angular/` |
+| ✅ **Analog.js** | v2.2 (Angular 19)  | `analog/`  |
+| ✅ **Vue.js**    | v3.5               | `vuejs/`   |
+| ✅ **Nuxt.js**   | v4.2               | `nuxtjs/`  |
 
 ## Getting Started
 
@@ -75,10 +77,24 @@ The following variables are defined in the `Taskfile` and `Makefile` and can be 
 | `IMAGE_NAME`     | The name of the Docker image.                                                        |
 | `CONTAINER_NAME` | The name of the Docker container.                                                    |
 | `HOST_PORT`      | The port on the host machine that the container will map to.                         |
-| `CONTAINER_PORT` | The port inside the Docker container where Nginx serves the application.             |
+| `CONTAINER_PORT` | The port inside the Docker container where the application is served.                |
 | `DOCKERFILE`     | The Dockerfile to use.                                                               |
 | `NODE_VERSION`   | The version of Node.js used in the base image. Can be updated for easier migrations. |
-| `NGINX_VERSION`  | The version of Nginx used in the export configuration.                               |
+| `NGINX_VERSION`  | The version of Nginx used for static file serving (SPA applications).                |
+
+---
+
+## Port Reference
+
+| Framework     | Default Port | Server Type    |
+| ------------- | ------------ | -------------- |
+| **React.js**  | 8080         | Nginx (static) |
+| **Angular**   | 8080         | Nginx (static) |
+| **Vue.js**    | 8080         | Nginx (static) |
+| **Next.js**   | 3000         | Node.js (SSR)  |
+| **Nuxt.js**   | 3000         | Node.js (SSR)  |
+| **Analog.js** | 3000         | Node.js (SSR)  |
+| **Remix.js**  | 3000         | Node.js (SSR)  |
 
 ---
 
@@ -103,7 +119,7 @@ Your support helps me continue creating valuable content for the community. Than
 
 ### 📬 Contact me
 
-If you’d like to connect, feel free to reach out via:
+If you'd like to connect, feel free to reach out via:
 
 - [LinkedIn](https://www.linkedin.com/in/kristiyan-velkov-763130b3/)
 - [Medium](https://medium.com/@kristiyanvelkov)

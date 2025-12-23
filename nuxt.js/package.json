@@ -1,20 +1,7 @@
 {
-  "name": "nuxt-app",
-  "version": "0.0.1",
-  "homepage": "https://github.com/kristiyan-velkov/frontend-prod-dockerfiles",
-  "author": {
-    "name": "Kristiyan Velkov",
-    "url": "https://www.linkedin.com/in/kristiyan-velkov-763130b3/"
-  },
-  "bugs": {
-    "url": "https://github.com/kristiyan-velkov/frontend-prod-dockerfiles/issues"
-  },
-  "funding": {
-    "type": "github",
-    "url": "https://github.com/sponsors/kristiyan-velkov"
-  },
-  "private": true,
+  "name": "nuxtjs",
   "type": "module",
+  "private": true,
   "scripts": {
     "build": "nuxt build",
     "dev": "nuxt dev",
@@ -23,8 +10,8 @@
     "postinstall": "nuxt prepare"
   },
   "dependencies": {
-    "nuxt": "^3.15.4",
-    "vue": "latest",
-    "vue-router": "latest"
+    "nuxt": "^4.2.2",
+    "vue": "^3.5.25",
+    "vue-router": "^4.6.4"
   }
 }
