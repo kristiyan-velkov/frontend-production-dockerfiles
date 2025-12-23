@@ -4,9 +4,9 @@ services:
       context: .
       dockerfile: Dockerfile
       args:
-        NODE_VERSION: 24-alpine
-    image: nuxt-image
-    container_name: nuxt-container
+        NODE_VERSION: 24.11.1-alpine
+    image: nuxt-app-image
+    container_name: nuxt-app-container
     environment:
       NODE_ENV: production
       PORT: 3000
@@ -14,10 +14,3 @@ services:
     ports:
       - "3000:3000"
     restart: unless-stopped
-    healthcheck:
-      test: ["CMD", "wget", "-q", "--spider", "http://localhost:3000"]
-      interval: 30s
-      timeout: 10s
-      retries: 3
-      start_period: 5s
-

@@ -1,7 +1,7 @@
 # =========================================
 # Stage 1: Build the React.js Application
 # =========================================
-ARG NODE_VERSION=24-alpine
+ARG NODE_VERSION=24.11.1-alpine
 ARG NGINX_VERSION=alpine3.22
 
 # Use a lightweight Node.js image for building (customizable via ARG)

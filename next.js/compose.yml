@@ -3,6 +3,9 @@ services:
     build:
       context: .
       dockerfile: Dockerfile.export
+      args:
+        NODE_VERSION: 24.11.1-slim
+        NGINXINC_IMAGE_TAG: alpine3.22
     image: nextjs-static-export-image
     container_name: nextjs-static-export-container
     environment:
@@ -15,24 +18,28 @@ services:
     build:
       context: .
       dockerfile: Dockerfile.serve
+      args:
+        NODE_VERSION: 24.11.1-slim
     image: nextjs-static-export-serve-image
     container_name: nextjs-static-export-serve-container
     environment:
       NODE_ENV: production
       PORT: 3000
     ports:
-      - "3000:3000"
+      - "3001:3000"
     restart: unless-stopped
 
-  nextjs-standalone-export:
+  nextjs-standalone:
     build:
       context: .
       dockerfile: Dockerfile.standalone
+      args:
+        NODE_VERSION: 24.11.1-slim
     image: nextjs-standalone-image
     container_name: nextjs-standalone-container
     environment:
       NODE_ENV: production
-      PORT: "3000"
+      PORT: 3000
     ports:
       - "3000:3000"
     restart: unless-stopped

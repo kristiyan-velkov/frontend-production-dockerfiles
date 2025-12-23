@@ -1,6 +1,6 @@
 # Frontend Prod Dockerfiles
 
-Production-ready **Dockerfiles** for **React.js, Angular, Vue.js, Next.js, Remix.js (React Router), Analog.js, Nuxt.js** applications.
+Production-ready **Dockerfiles** for **React.js, Angular, Vue.js, Next.js, Remix.js (React Router), TanStack Start, Analog.js, Nuxt.js** applications.
 
 These Dockerfiles are optimized for **performance, security, and minimal image size** to ensure efficient and scalable deployments.
 
@@ -19,15 +19,16 @@ These Dockerfiles are optimized for **performance, security, and minimal image s
 
 ## Supported Frameworks / Libraries
 
-| Framework        | Version            | Directory  |
-| ---------------- | ------------------ | ---------- |
-| ✅ **React.js**  | v19.2              | `reactjs/` |
-| ✅ **Next.js**   | v16                | `nextjs/`  |
-| ✅ **Remix.js**  | React Router v7.10 | `remixjs/` |
-| ✅ **Angular**   | v21                | `angular/` |
-| ✅ **Analog.js** | v2.2 (Angular 19)  | `analog/`  |
-| ✅ **Vue.js**    | v3.5               | `vuejs/`   |
-| ✅ **Nuxt.js**   | v4.2               | `nuxtjs/`  |
+| Framework             | Version            | Directory         |
+| --------------------- | ------------------ | ----------------- |
+| ✅ **React.js**       | v19.2              | `react.js/`       |
+| ✅ **Next.js**        | v16                | `next.js/`        |
+| ✅ **Remix.js**       | React Router v7.10 | `remix.js/`       |
+| ✅ **TanStack Start** | v1.132             | `tanstack-start/` |
+| ✅ **Angular**        | v21                | `angular/`        |
+| ✅ **Analog.js**      | v2.2 (Angular 21)  | `analog.js/`      |
+| ✅ **Vue.js**         | v3.5               | `vue.js/`         |
+| ✅ **Nuxt.js**        | v4.2               | `nuxt.js/`        |
 
 ## Getting Started
 
@@ -86,15 +87,16 @@ The following variables are defined in the `Taskfile` and `Makefile` and can be 
 
 ## Port Reference
 
-| Framework     | Default Port | Server Type    |
-| ------------- | ------------ | -------------- |
-| **React.js**  | 8080         | Nginx (static) |
-| **Angular**   | 8080         | Nginx (static) |
-| **Vue.js**    | 8080         | Nginx (static) |
-| **Next.js**   | 3000         | Node.js (SSR)  |
-| **Nuxt.js**   | 3000         | Node.js (SSR)  |
-| **Analog.js** | 3000         | Node.js (SSR)  |
-| **Remix.js**  | 3000         | Node.js (SSR)  |
+| Framework          | Default Port | Server Type    |
+| ------------------ | ------------ | -------------- |
+| **React.js**       | 8080         | Nginx (static) |
+| **Angular**        | 8080         | Nginx (static) |
+| **Vue.js**         | 8080         | Nginx (static) |
+| **Next.js**        | 3000         | Node.js (SSR)  |
+| **Nuxt.js**        | 3000         | Node.js (SSR)  |
+| **Analog.js**      | 3000         | Node.js (SSR)  |
+| **Remix.js**       | 3000         | Node.js (SSR)  |
+| **TanStack Start** | 3000         | Node.js (SSR)  |
 
 ---
 
@@ -122,8 +124,7 @@ Your support helps me continue creating valuable content for the community. Than
 If you'd like to connect, feel free to reach out via:
 
 - [LinkedIn](https://www.linkedin.com/in/kristiyan-velkov-763130b3/)
-- [Medium](https://medium.com/@kristiyanvelkov)
-- [Discord](https://discord.gg/dcdYZfsd)
+- [X.com](https://x.com/krisvelkov)
 
 Looking forward to chatting with you! 🚀
 

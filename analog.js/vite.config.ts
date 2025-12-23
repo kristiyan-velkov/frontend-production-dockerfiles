@@ -18,7 +18,7 @@ export default defineConfig(({ mode }) => ({
       static: false,
       nitro: {
         preset: 'node-server',
-        serveStatic: false,
+        serveStatic: true,
         externals: {
           inline: ['zone.js/node', 'tslib'],
         },

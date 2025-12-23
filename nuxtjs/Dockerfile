@@ -1,7 +1,7 @@
 # =========================================
-# Stage 1: Build the Angular Application
+# Stage 1: Build the Nuxt.js Application
 # =========================================
-ARG NODE_VERSION=24.11.1-alpine
+ARG NODE_VERSION=24-alpine
 
 # Use a lightweight Node.js image for building (customizable via ARG)
 FROM node:${NODE_VERSION} AS builder
@@ -18,11 +18,11 @@ RUN npm ci
 # Copy the rest of the application source code into the container
 COPY --link . .
 
-# Build the Angular application
+# Build the Nuxt.js application (outputs to /app/.output)
 RUN npm run build
 
 # =========================================
-# Stage 2: Run the Angular SSR Server
+# Stage 2: Run the Nuxt.js Server
 # =========================================
 FROM node:${NODE_VERSION} AS runner
 
@@ -32,21 +32,16 @@ WORKDIR /app
 # Set environment variable for production
 ENV NODE_ENV=production
 ENV PORT=3000
+ENV HOST=0.0.0.0
 
-# Application name
-ARG APP_NAME=my-angular-app
-
-# Copy the built browser assets (needed for SSR to serve static files)
-COPY --link --from=builder /app/dist/${APP_NAME}/browser ./browser
-
-# Copy the built server files from the builder stage
-# Maintain directory structure: server files go to ./server so server.mjs can find ../browser
-COPY --link --from=builder /app/dist/${APP_NAME}/server ./server
+# Copy the built server and client assets from the builder stage
+COPY --link --from=builder /app/.output ./
 
 # Switch to the non-root user
 USER node 
 
-# Expose the application port (Angular SSR typically runs on 3000)
+# Expose the application port (Nuxt.js typically runs on 3000)
 EXPOSE 3000
 
-ENTRYPOINT ["node", "server/server.mjs"]
+ENTRYPOINT ["node", "server/index.mjs"]
+

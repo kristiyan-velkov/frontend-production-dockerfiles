@@ -2,6 +2,18 @@
   "name": "remixjs",
   "private": true,
   "type": "module",
+  "homepage": "https://github.com/kristiyan-velkov/frontend-prod-dockerfiles",
+  "author": {
+    "name": "Kristiyan Velkov",
+    "url": "https://www.linkedin.com/in/kristiyan-velkov-763130b3/"
+  },
+  "bugs": {
+    "url": "https://github.com/kristiyan-velkov/frontend-prod-dockerfiles/issues"
+  },
+  "funding": {
+    "type": "github",
+    "url": "https://github.com/sponsors/kristiyan-velkov"
+  },
   "scripts": {
     "build": "react-router build",
     "dev": "react-router dev",
@@ -26,5 +38,9 @@
     "typescript": "^5.9.2",
     "vite": "^7.1.7",
     "vite-tsconfig-paths": "^5.1.4"
-  }
+  },
+  "engines": {
+    "node": ">=24.11.1"
+  },
+  "packageManager": "npm@10.9.3"
 }

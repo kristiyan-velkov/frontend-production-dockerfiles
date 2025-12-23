@@ -2,8 +2,17 @@
   "name": "analog",
   "version": "0.0.0",
   "type": "module",
-  "engines": {
-    "node": ">=18.19.1"
+  "homepage": "https://github.com/kristiyan-velkov/frontend-prod-dockerfiles",
+  "author": {
+    "name": "Kristiyan Velkov",
+    "url": "https://www.linkedin.com/in/kristiyan-velkov-763130b3/"
+  },
+  "bugs": {
+    "url": "https://github.com/kristiyan-velkov/frontend-prod-dockerfiles/issues"
+  },
+  "funding": {
+    "type": "github",
+    "url": "https://github.com/sponsors/kristiyan-velkov"
   },
   "scripts": {
     "ng": "ng",
@@ -52,5 +61,9 @@
     "vite": "^6.0.0",
     "vite-tsconfig-paths": "^4.2.0",
     "vitest": "^3.0.0"
-  }
+  },
+  "engines": {
+    "node": ">=24.11.1"
+  },
+  "packageManager": "npm@10.9.3"
 }

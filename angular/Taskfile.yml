@@ -1,4 +1,4 @@
-version: '3'
+version: "3"
 
 vars:
   IMAGE_NAME: angular-app
@@ -7,7 +7,7 @@ vars:
   HOST_PORT: 8080
   CONTAINER_PORT: 8080
   DOCKERFILE: Dockerfile
-  NODE_VERSION: 24-alpine
+  NODE_VERSION: 24.11.1-alpine
   NGINX_VERSION: alpine3.22
   APP_NAME: angular
 
@@ -16,10 +16,10 @@ tasks:
     desc: "Build the Docker image"
     cmds:
       - docker build --no-cache
-          --build-arg NODE_VERSION={{.NODE_VERSION}}
-          --build-arg NGINX_VERSION={{.NGINX_VERSION}}
-          --build-arg APP_NAME={{.APP_NAME}}
-          -f {{.DOCKERFILE}} -t {{.IMAGE_NAME}}:{{.IMAGE_TAG}} .
+        --build-arg NODE_VERSION={{.NODE_VERSION}}
+        --build-arg NGINX_VERSION={{.NGINX_VERSION}}
+        --build-arg APP_NAME={{.APP_NAME}}
+        -f {{.DOCKERFILE}} -t {{.IMAGE_NAME}}:{{.IMAGE_TAG}} .
 
   run:
     desc: "Run the Docker container"
@@ -69,4 +69,3 @@ tasks:
     desc: "Show available commands"
     cmds:
       - task --list
-

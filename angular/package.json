@@ -1,10 +1,24 @@
 {
   "name": "angular",
   "version": "0.0.0",
+  "homepage": "https://github.com/kristiyan-velkov/frontend-prod-dockerfiles",
+  "author": {
+    "name": "Kristiyan Velkov",
+    "url": "https://www.linkedin.com/in/kristiyan-velkov-763130b3/"
+  },
+  "bugs": {
+    "url": "https://github.com/kristiyan-velkov/frontend-prod-dockerfiles/issues"
+  },
+  "funding": {
+    "type": "github",
+    "url": "https://github.com/sponsors/kristiyan-velkov"
+  },
   "scripts": {
     "ng": "ng",
     "start": "ng serve",
     "build": "ng build",
+    "build:ssr": "ng build && npx esbuild src/server.ts --bundle --platform=node --format=esm --packages=external --outfile=dist/angular/server/server.mjs",
+    "serve:ssr": "node dist/angular/server/server.mjs",
     "watch": "ng build --watch --configuration development",
     "test": "ng test"
   },
@@ -21,14 +35,16 @@
     ]
   },
   "private": true,
-  "packageManager": "npm@10.9.3",
   "dependencies": {
     "@angular/common": "^21.0.0",
     "@angular/compiler": "^21.0.0",
     "@angular/core": "^21.0.0",
     "@angular/forms": "^21.0.0",
     "@angular/platform-browser": "^21.0.0",
+    "@angular/platform-server": "^21.0.6",
     "@angular/router": "^21.0.0",
+    "@angular/ssr": "^21.0.4",
+    "express": "^5.2.1",
     "rxjs": "~7.8.0",
     "tslib": "^2.3.0"
   },
@@ -36,8 +52,14 @@
     "@angular/build": "^21.0.3",
     "@angular/cli": "^21.0.3",
     "@angular/compiler-cli": "^21.0.0",
+    "@types/express": "^5.0.6",
+    "@types/node": "^22.0.0",
     "jsdom": "^27.1.0",
     "typescript": "~5.9.2",
     "vitest": "^4.0.8"
-  }
+  },
+  "engines": {
+    "node": ">=24.11.1"
+  },
+  "packageManager": "npm@10.9.3"
 }
