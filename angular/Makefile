@@ -60,5 +60,3 @@ clean-container:
 # Clean up by removing Docker image
 clean-image:
 	@docker rmi $(IMAGE_NAME):$(IMAGE_TAG) 2>/dev/null || true
-
-

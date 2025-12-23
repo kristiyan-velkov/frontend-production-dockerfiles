@@ -59,3 +59,4 @@ clean-container:
 # Clean up by removing Docker image and container
 clean-image:
 	docker rmi $(IMAGE_NAME):$(IMAGE_TAG)
+

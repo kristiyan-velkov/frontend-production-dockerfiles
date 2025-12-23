@@ -38,4 +38,3 @@ export const SOCIAL_LINKS: SocialLink[] = [
   },
 ];
 
-

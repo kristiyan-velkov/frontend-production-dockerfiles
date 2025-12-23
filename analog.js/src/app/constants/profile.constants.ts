@@ -34,5 +34,3 @@ export const EXPERTISE_TAGS = [
   'Security',
   'CI/CD',
 ] as const;
-
-
