@@ -55,3 +55,4 @@ EXPOSE 3000
 # Start the application using the standalone server
 ENTRYPOINT ["node", "server.js"]
 
+

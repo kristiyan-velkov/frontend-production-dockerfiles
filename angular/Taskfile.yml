@@ -69,3 +69,4 @@ tasks:
     desc: "Show available commands"
     cmds:
       - task --list
+
