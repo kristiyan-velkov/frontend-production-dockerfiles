@@ -1,4 +1,4 @@
-version: '3'
+version: "3"
 
 vars:
   IMAGE_NAME: next-js-app
@@ -10,15 +10,16 @@ vars:
   NODE_VERSION: 24.11.1-alpine
   NGINX_VERSION: alpine3.22
   NODE_ENV: production
+  PORT: 3000
 
 tasks:
   build:
     desc: "Build the Docker image"
     cmds:
       - docker build
-          --build-arg NODE_VERSION={{.NODE_VERSION}}
-          --build-arg NGINX_VERSION={{.NGINX_VERSION}}
-          -f {{.DOCKERFILE}} -t {{.IMAGE_NAME}}:{{.IMAGE_TAG}} .
+        --build-arg NODE_VERSION={{.NODE_VERSION}}
+        --build-arg NGINX_VERSION={{.NGINX_VERSION}}
+        -f {{.DOCKERFILE}} -t {{.IMAGE_NAME}}:{{.IMAGE_TAG}} .
 
   run:
     desc: "Run the Docker container"

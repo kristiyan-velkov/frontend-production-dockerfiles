@@ -1,0 +1,44 @@
+# Dependencies
+node_modules/
+
+# Build outputs
+.output/
+.nitro/
+dist/
+
+# Development files
+*.log
+.DS_Store
+*.local
+
+# IDE
+.idea/
+.vscode/
+*.swp
+*.swo
+
+# Environment files
+.env
+.env.*
+!.env.example
+
+# Test files
+coverage/
+__tests__/
+*.test.*
+*.spec.*
+
+# Git
+.git/
+.gitignore
+
+# Docker files (not needed in build context)
+Dockerfile*
+docker-compose*.yml
+compose*.yml
+Makefile
+Taskfile.yml
+.dockerignore
+
+
+

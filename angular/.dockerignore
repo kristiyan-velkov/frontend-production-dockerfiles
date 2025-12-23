@@ -47,8 +47,6 @@ Dockerfile
 docker-compose.yml
 docker-compose.override.yml
 
-# Ignore build-specific cache files
-*.lock
 
 # Ignore AI-related files and caches
 *.ai

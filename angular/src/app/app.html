@@ -1,0 +1,232 @@
+<main class="page">
+  <div class="background-effects">
+    <div class="gradient-orb orb-1"></div>
+    <div class="gradient-orb orb-2"></div>
+    <div class="gradient-orb orb-3"></div>
+  </div>
+
+  <div class="profile-card">
+    <!-- Version Badge -->
+    <div class="version-badge">
+      <svg viewBox="0 0 24 24" width="16" height="16" fill="currentColor">
+        <path d="M12 2L2 19h20L12 2zm0 3.8L18.5 17H5.5L12 5.8z" />
+      </svg>
+      {{ appInfo.framework }} v{{ appInfo.version }}
+    </div>
+
+    <!-- Profile Image -->
+    <div class="avatar-container">
+      <img [src]="profile.avatar" [alt]="profile.name" class="avatar-image" />
+      <div class="avatar-ring"></div>
+    </div>
+
+    <!-- Name & Title -->
+    <h1 class="name">{{ profile.name }}</h1>
+
+    <!-- Badges -->
+    <div class="badges">
+      <span *ngFor="let badge of badges" class="badge" [ngClass]="badge.id">
+        <ng-container [ngSwitch]="badge.icon">
+          <!-- Docker Icon -->
+          <svg
+            *ngSwitchCase="'docker'"
+            viewBox="0 0 24 24"
+            width="16"
+            height="16"
+            fill="currentColor"
+          >
+            <path
+              d="M13.983 11.078h2.119a.186.186 0 00.186-.185V9.006a.186.186 0 00-.186-.186h-2.119a.185.185 0 00-.185.185v1.888c0 .102.083.185.185.185m-2.954-5.43h2.118a.186.186 0 00.186-.186V3.574a.186.186 0 00-.186-.185h-2.118a.185.185 0 00-.185.185v1.888c0 .102.082.185.185.186m0 2.716h2.118a.187.187 0 00.186-.186V6.29a.186.186 0 00-.186-.185h-2.118a.185.185 0 00-.185.185v1.887c0 .102.082.185.185.186m-2.93 0h2.12a.186.186 0 00.184-.186V6.29a.185.185 0 00-.185-.185H8.1a.185.185 0 00-.185.185v1.887c0 .102.083.185.185.186m-2.964 0h2.119a.186.186 0 00.185-.186V6.29a.185.185 0 00-.185-.185H5.136a.186.186 0 00-.186.185v1.887c0 .102.084.185.186.186m5.893 2.715h2.118a.186.186 0 00.186-.185V9.006a.186.186 0 00-.186-.186h-2.118a.185.185 0 00-.185.185v1.888c0 .102.082.185.185.185m-2.93 0h2.12a.185.185 0 00.184-.185V9.006a.185.185 0 00-.184-.186h-2.12a.185.185 0 00-.184.185v1.888c0 .102.083.185.185.185m-2.964 0h2.119a.185.185 0 00.185-.185V9.006a.185.185 0 00-.184-.186h-2.12a.186.186 0 00-.186.186v1.887c0 .102.084.185.186.185m-2.92 0h2.12a.185.185 0 00.184-.185V9.006a.185.185 0 00-.184-.186h-2.12a.185.185 0 00-.184.185v1.888c0 .102.082.185.185.185M23.763 9.89c-.065-.051-.672-.51-1.954-.51-.338.001-.676.03-1.01.087-.248-1.7-1.653-2.53-1.716-2.566l-.344-.199-.226.327c-.284.438-.49.922-.612 1.43-.23.97-.09 1.882.403 2.661-.595.332-1.55.413-1.744.42H.751a.751.751 0 00-.75.748 11.376 11.376 0 00.692 4.062c.545 1.428 1.355 2.48 2.41 3.124 1.18.723 3.1 1.137 5.275 1.137.983.003 1.963-.086 2.93-.266a12.248 12.248 0 003.823-1.389c.98-.567 1.86-1.288 2.61-2.136 1.252-1.418 1.998-2.997 2.553-4.4h.221c1.372 0 2.215-.549 2.68-1.009.309-.293.55-.65.707-1.046l.098-.288z"
+            />
+          </svg>
+          <!-- Book Icon -->
+          <svg
+            *ngSwitchCase="'book'"
+            viewBox="0 0 24 24"
+            width="16"
+            height="16"
+            fill="currentColor"
+          >
+            <path
+              d="M6 2c-1.1 0-1.99.9-1.99 2L4 20c0 1.1.89 2 1.99 2H18c1.1 0 2-.9 2-2V8l-6-6H6zm7 7V3.5L18.5 9H13z"
+            />
+          </svg>
+          <!-- Check Icon -->
+          <svg
+            *ngSwitchCase="'check'"
+            viewBox="0 0 24 24"
+            width="16"
+            height="16"
+            fill="currentColor"
+          >
+            <path
+              d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm-2 15l-5-5 1.41-1.41L10 14.17l7.59-7.59L19 8l-9 9z"
+            />
+          </svg>
+        </ng-container>
+        {{ badge.label }}
+      </span>
+    </div>
+
+    <!-- Bio -->
+    <p class="bio">{{ profile.bio }}</p>
+
+    <!-- Expertise Section -->
+    <section class="section">
+      <h2 class="section-title">
+        <svg viewBox="0 0 24 24" width="20" height="20" fill="currentColor">
+          <path
+            d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"
+          />
+        </svg>
+        Expertise
+      </h2>
+      <div class="tags">
+        <span *ngFor="let tag of expertiseTags" class="tag">{{ tag }}</span>
+      </div>
+    </section>
+
+    <!-- Books Section -->
+    <section class="section books-section">
+      <h2 class="section-title">
+        <svg viewBox="0 0 24 24" width="20" height="20" fill="currentColor">
+          <path
+            d="M18 2H6c-1.1 0-2 .9-2 2v16c0 1.1.9 2 2 2h12c1.1 0 2-.9 2-2V4c0-1.1-.9-2-2-2zM6 4h5v8l-2.5-1.5L6 12V4z"
+          />
+        </svg>
+        My Books
+      </h2>
+
+      <div *ngIf="promo.enabled" class="promo-banner">
+        <span class="promo-icon">🎉</span>
+        <div class="promo-text">
+          <strong>{{ promo.discountPercent }}% OFF</strong> all books with code
+          <code class="promo-code">{{ promo.code }}</code>
+        </div>
+      </div>
+
+      <div class="books-grid">
+        <a
+          *ngFor="let book of books"
+          [href]="book.buyUrl"
+          target="_blank"
+          rel="noopener"
+          class="book-card"
+        >
+          <div class="book-cover-image">
+            <img [src]="book.coverImage" [alt]="book.title" />
+          </div>
+          <div class="book-info">
+            <h4>{{ book.title }}</h4>
+            <p>{{ book.description }}</p>
+            <div class="book-meta">
+              <span class="book-cta">Buy Now →</span>
+            </div>
+          </div>
+        </a>
+      </div>
+    </section>
+
+    <!-- Social Links -->
+    <section class="section">
+      <h2 class="section-title">
+        <svg viewBox="0 0 24 24" width="20" height="20" fill="currentColor">
+          <path
+            d="M3.9 12c0-1.71 1.39-3.1 3.1-3.1h4V7H7c-2.76 0-5 2.24-5 5s2.24 5 5 5h4v-1.9H7c-1.71 0-3.1-1.39-3.1-3.1zM8 13h8v-2H8v2zm9-6h-4v1.9h4c1.71 0 3.1 1.39 3.1 3.1s-1.39 3.1-3.1 3.1h-4V17h4c2.76 0 5-2.24 5-5s-2.24-5-5-5z"
+          />
+        </svg>
+        Connect With Me
+      </h2>
+      <div class="social-links">
+        <a
+          *ngFor="let link of socialLinks"
+          [href]="link.url"
+          target="_blank"
+          rel="noopener"
+          class="social-link"
+          [ngClass]="link.id"
+        >
+          <ng-container [ngSwitch]="link.icon">
+            <!-- Globe Icon -->
+            <svg
+              *ngSwitchCase="'globe'"
+              viewBox="0 0 24 24"
+              width="20"
+              height="20"
+              fill="currentColor"
+            >
+              <circle cx="12" cy="12" r="10" fill="none" stroke="currentColor" stroke-width="2" />
+              <path
+                d="M2 12h20M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z"
+                fill="none"
+                stroke="currentColor"
+                stroke-width="2"
+              />
+            </svg>
+            <!-- LinkedIn Icon -->
+            <svg
+              *ngSwitchCase="'linkedin'"
+              viewBox="0 0 24 24"
+              width="20"
+              height="20"
+              fill="currentColor"
+            >
+              <path
+                d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433c-1.144 0-2.063-.926-2.063-2.065 0-1.138.92-2.063 2.063-2.063 1.14 0 2.064.925 2.064 2.063 0 1.139-.925 2.065-2.064 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z"
+              />
+            </svg>
+            <!-- Twitter/X Icon -->
+            <svg
+              *ngSwitchCase="'twitter'"
+              viewBox="0 0 24 24"
+              width="20"
+              height="20"
+              fill="currentColor"
+            >
+              <path
+                d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-5.214-6.817L4.99 21.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231zm-1.161 17.52h1.833L7.084 4.126H5.117z"
+              />
+            </svg>
+            <!-- Medium Icon -->
+            <svg
+              *ngSwitchCase="'medium'"
+              viewBox="0 0 24 24"
+              width="20"
+              height="20"
+              fill="currentColor"
+            >
+              <path
+                d="M13.54 12a6.8 6.8 0 01-6.77 6.82A6.8 6.8 0 010 12a6.8 6.8 0 016.77-6.82A6.8 6.8 0 0113.54 12zM20.96 12c0 3.54-1.51 6.42-3.38 6.42-1.87 0-3.39-2.88-3.39-6.42s1.52-6.42 3.39-6.42 3.38 2.88 3.38 6.42M24 12c0 3.17-.53 5.75-1.19 5.75-.66 0-1.19-2.58-1.19-5.75s.53-5.75 1.19-5.75C23.47 6.25 24 8.83 24 12z"
+              />
+            </svg>
+            <!-- GitHub Icon -->
+            <svg
+              *ngSwitchCase="'github'"
+              viewBox="0 0 24 24"
+              width="20"
+              height="20"
+              fill="currentColor"
+            >
+              <path
+                d="M12 0c-6.626 0-12 5.373-12 12 0 5.302 3.438 9.8 8.207 11.387.599.111.793-.261.793-.577v-2.234c-3.338.726-4.033-1.416-4.033-1.416-.546-1.387-1.333-1.756-1.333-1.756-1.089-.745.083-.729.083-.729 1.205.084 1.839 1.237 1.839 1.237 1.07 1.834 2.807 1.304 3.492.997.107-.775.418-1.305.762-1.604-2.665-.305-5.467-1.334-5.467-5.931 0-1.311.469-2.381 1.236-3.221-.124-.303-.535-1.524.117-3.176 0 0 1.008-.322 3.301 1.23.957-.266 1.983-.399 3.003-.404 1.02.005 2.047.138 3.006.404 2.291-1.552 3.297-1.23 3.297-1.23.653 1.653.242 2.874.118 3.176.77.84 1.235 1.911 1.235 3.221 0 4.609-2.807 5.624-5.479 5.921.43.372.823 1.102.823 2.222v3.293c0 .319.192.694.801.576 4.765-1.589 8.199-6.086 8.199-11.386 0-6.627-5.373-12-12-12z"
+              />
+            </svg>
+          </ng-container>
+          <span>{{ link.label }}</span>
+        </a>
+      </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+      <a [href]="appInfo.frameworkUrl" target="_blank" rel="noopener" class="angular-link">
+        <svg viewBox="0 0 24 24" width="32" height="32" fill="currentColor" class="angular-logo">
+          <path d="M12 2L2 19h3.6L12 5.8 18.4 19H22L12 2zm0 8.8L9.1 16h5.8L12 10.8z" />
+        </svg>
+      </a>
+      <span class="footer-text">Built with {{ appInfo.framework }} v{{ appInfo.version }}</span>
+    </footer>
+  </div>
+</main>
+
+<router-outlet />

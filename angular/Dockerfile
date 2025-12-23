@@ -47,4 +47,3 @@ EXPOSE 8080
 # Start Nginx directly with custom config
 ENTRYPOINT ["nginx", "-c", "/etc/nginx/nginx.conf"]
 CMD ["-g", "daemon off;"]
-

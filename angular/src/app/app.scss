@@ -1,0 +1,611 @@
+@use 'sass:color';
+
+// Variables
+$gradient-start: #0f0c29;
+$gradient-mid: #302b63;
+$gradient-end: #24243e;
+
+$card-bg: rgba(255, 255, 255, 0.03);
+$card-border: rgba(255, 255, 255, 0.08);
+
+$text-primary: #ffffff;
+$text-secondary: #a0aec0;
+$text-muted: #718096;
+
+$accent-cyan: #22d3ee;
+$accent-purple: #a78bfa;
+$accent-pink: #f472b6;
+$accent-green: #34d399;
+$accent-blue: #60a5fa;
+$accent-orange: #fb923c;
+
+// Page Container
+.page {
+  min-height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 2rem;
+  background: linear-gradient(135deg, $gradient-start 0%, $gradient-mid 50%, $gradient-end 100%);
+  position: relative;
+  overflow: hidden;
+}
+
+// Animated Background Effects
+.background-effects {
+  position: absolute;
+  inset: 0;
+  overflow: hidden;
+  pointer-events: none;
+}
+
+.gradient-orb {
+  position: absolute;
+  border-radius: 50%;
+  filter: blur(80px);
+  opacity: 0.4;
+  animation: float 20s ease-in-out infinite;
+}
+
+.orb-1 {
+  width: 600px;
+  height: 600px;
+  background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+  top: -200px;
+  right: -200px;
+  animation-delay: 0s;
+}
+
+.orb-2 {
+  width: 400px;
+  height: 400px;
+  background: linear-gradient(135deg, #f093fb 0%, #f5576c 100%);
+  bottom: -100px;
+  left: -100px;
+  animation-delay: -7s;
+}
+
+.orb-3 {
+  width: 300px;
+  height: 300px;
+  background: linear-gradient(135deg, #4facfe 0%, #00f2fe 100%);
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  animation-delay: -14s;
+}
+
+@keyframes float {
+  0%,
+  100% {
+    transform: translate(0, 0) scale(1);
+  }
+  25% {
+    transform: translate(30px, -30px) scale(1.05);
+  }
+  50% {
+    transform: translate(-20px, 20px) scale(0.95);
+  }
+  75% {
+    transform: translate(-30px, -20px) scale(1.02);
+  }
+}
+
+// Profile Card
+.profile-card {
+  background: $card-bg;
+  backdrop-filter: blur(20px);
+  border-radius: 32px;
+  padding: 3rem;
+  max-width: 800px;
+  width: 100%;
+  border: 1px solid $card-border;
+  box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.5), inset 0 1px 0 rgba(255, 255, 255, 0.1);
+  position: relative;
+  z-index: 1;
+}
+
+// Version Badge
+.version-badge {
+  position: absolute;
+  top: 1.5rem;
+  right: 1.5rem;
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  padding: 0.5rem 1rem;
+  background: rgba(221, 48, 49, 0.15);
+  border: 1px solid rgba(221, 48, 49, 0.3);
+  border-radius: 9999px;
+  color: #ff6b6b;
+  font-size: 0.75rem;
+  font-weight: 600;
+  letter-spacing: 0.025em;
+
+  svg {
+    fill: #dd3031;
+  }
+}
+
+// Avatar
+.avatar-container {
+  position: relative;
+  width: 140px;
+  height: 140px;
+  margin: 0 auto 1.5rem;
+}
+
+.avatar-image {
+  width: 100%;
+  height: 100%;
+  border-radius: 50%;
+  object-fit: cover;
+  position: relative;
+  z-index: 2;
+  border: 3px solid rgba(255, 255, 255, 0.1);
+}
+
+.avatar-ring {
+  position: absolute;
+  inset: -4px;
+  border-radius: 50%;
+  background: linear-gradient(135deg, $accent-cyan, $accent-purple, $accent-pink);
+  animation: spin 8s linear infinite;
+  z-index: 1;
+
+  &::after {
+    content: '';
+    position: absolute;
+    inset: 4px;
+    background: $gradient-mid;
+    border-radius: 50%;
+  }
+}
+
+@keyframes spin {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+// Typography
+.name {
+  font-size: 2.5rem;
+  font-weight: 800;
+  color: $text-primary;
+  text-align: center;
+  margin: 0 0 0.5rem;
+  letter-spacing: -0.025em;
+  background: linear-gradient(135deg, #fff 0%, #a0aec0 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+
+.title {
+  color: $text-secondary;
+  text-align: center;
+  font-size: 1.125rem;
+  margin: 0 0 1.5rem;
+  font-weight: 500;
+}
+
+// Badges
+.badges {
+  display: flex;
+  gap: 0.75rem;
+  justify-content: center;
+  margin-bottom: 1.5rem;
+  flex-wrap: wrap;
+}
+
+.badge {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  padding: 0.5rem 1rem;
+  border-radius: 9999px;
+  font-size: 0.875rem;
+  font-weight: 600;
+
+  &.docker {
+    background: rgba($accent-cyan, 0.15);
+    color: $accent-cyan;
+    border: 1px solid rgba($accent-cyan, 0.3);
+
+    svg {
+      fill: $accent-cyan;
+    }
+  }
+
+  &.author {
+    background: rgba($accent-pink, 0.15);
+    color: $accent-pink;
+    border: 1px solid rgba($accent-pink, 0.3);
+
+    svg {
+      fill: $accent-pink;
+    }
+  }
+
+  &.contributor {
+    background: rgba($accent-green, 0.15);
+    color: $accent-green;
+    border: 1px solid rgba($accent-green, 0.3);
+
+    svg {
+      fill: $accent-green;
+    }
+  }
+}
+
+// Bio
+.bio {
+  color: $text-secondary;
+  text-align: center;
+  line-height: 1.8;
+  margin-bottom: 2rem;
+  font-size: 1rem;
+}
+
+// Sections
+.section {
+  margin-bottom: 2rem;
+
+  &:last-of-type {
+    margin-bottom: 0;
+  }
+}
+
+.section-title {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.5rem;
+  color: $text-primary;
+  font-size: 1rem;
+  font-weight: 600;
+  margin-bottom: 1.25rem;
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+
+  svg {
+    fill: $accent-purple;
+  }
+}
+
+// Tags
+.tags {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.5rem;
+  justify-content: center;
+}
+
+.tag {
+  background: rgba($accent-purple, 0.15);
+  color: color.adjust($accent-purple, $lightness: 10%);
+  padding: 0.5rem 1rem;
+  border-radius: 8px;
+  font-size: 0.875rem;
+  font-weight: 500;
+  border: 1px solid rgba($accent-purple, 0.2);
+  transition: all 0.2s ease;
+
+  &:hover {
+    background: rgba($accent-purple, 0.25);
+    transform: translateY(-2px);
+  }
+}
+
+// Books Section
+.books-section {
+  background: rgba(255, 255, 255, 0.02);
+  border-radius: 20px;
+  padding: 1.5rem;
+  border: 1px solid rgba(255, 255, 255, 0.05);
+}
+
+.promo-banner {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.75rem;
+  background: linear-gradient(135deg, rgba($accent-orange, 0.2), rgba($accent-pink, 0.2));
+  border: 1px solid rgba($accent-orange, 0.3);
+  border-radius: 12px;
+  padding: 1rem 1.5rem;
+  margin-bottom: 1.5rem;
+
+  .promo-icon {
+    font-size: 1.5rem;
+  }
+
+  .promo-text {
+    color: $text-primary;
+    font-size: 0.95rem;
+
+    strong {
+      color: $accent-orange;
+    }
+  }
+
+  .promo-code {
+    background: rgba(0, 0, 0, 0.3);
+    padding: 0.25rem 0.75rem;
+    border-radius: 6px;
+    font-family: 'JetBrains Mono', 'Fira Code', monospace;
+    color: $accent-cyan;
+    font-weight: 700;
+    letter-spacing: 0.05em;
+  }
+}
+
+// Books Grid
+.books-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 1.25rem;
+
+  @media (max-width: 700px) {
+    grid-template-columns: 1fr;
+  }
+}
+
+// Book Card
+.book-card {
+  display: flex;
+  gap: 1.25rem;
+  padding: 1.25rem;
+  background: rgba(255, 255, 255, 0.03);
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  border-radius: 16px;
+  text-decoration: none;
+  transition: all 0.3s ease;
+
+  &:hover {
+    background: rgba(255, 255, 255, 0.06);
+    transform: translateY(-4px);
+    box-shadow: 0 15px 40px rgba(0, 0, 0, 0.3);
+
+    .book-cta {
+      color: $accent-cyan;
+    }
+
+    .book-cover-image {
+      transform: scale(1.05) rotateY(-5deg);
+    }
+  }
+}
+
+// Book Cover Image
+.book-cover-image {
+  width: 100px;
+  height: 140px;
+  flex-shrink: 0;
+  position: relative;
+  transition: transform 0.4s ease;
+  perspective: 1000px;
+
+  img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    border-radius: 6px;
+    box-shadow: 4px 4px 15px rgba(0, 0, 0, 0.4), 0 0 0 1px rgba(255, 255, 255, 0.1);
+  }
+}
+
+// Book Info
+.book-info {
+  flex: 1;
+  min-width: 0;
+
+  h4 {
+    color: $text-primary;
+    font-size: 1rem;
+    font-weight: 600;
+    margin: 0 0 0.5rem;
+    line-height: 1.4;
+  }
+
+  p {
+    color: $text-muted;
+    font-size: 0.8rem;
+    margin: 0 0 0.75rem;
+    line-height: 1.6;
+    display: -webkit-box;
+    -webkit-line-clamp: 3;
+    -webkit-box-orient: vertical;
+    overflow: hidden;
+  }
+}
+
+.book-meta {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 0.75rem;
+}
+
+.book-status {
+  font-size: 0.7rem;
+  font-weight: 600;
+  padding: 0.25rem 0.6rem;
+  border-radius: 4px;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+
+  &.available {
+    background: rgba($accent-green, 0.2);
+    color: $accent-green;
+  }
+
+  &.soon {
+    background: rgba($accent-orange, 0.2);
+    color: $accent-orange;
+  }
+}
+
+.book-cta,
+.book-notify {
+  font-size: 0.8rem;
+  font-weight: 600;
+  transition: color 0.2s ease;
+}
+
+.book-cta {
+  color: $text-secondary;
+}
+
+.book-notify {
+  color: $accent-orange;
+}
+
+// Social Links
+.social-links {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.75rem;
+  justify-content: center;
+}
+
+.social-link {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  padding: 0.75rem 1.25rem;
+  border-radius: 12px;
+  text-decoration: none;
+  font-size: 0.875rem;
+  font-weight: 600;
+  transition: all 0.2s ease;
+
+  &:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 8px 25px rgba(0, 0, 0, 0.3);
+  }
+
+  span {
+    @media (max-width: 480px) {
+      display: none;
+    }
+  }
+
+  &.website {
+    background: rgba($accent-green, 0.15);
+    color: $accent-green;
+    border: 1px solid rgba($accent-green, 0.3);
+  }
+
+  &.linkedin {
+    background: rgba($accent-blue, 0.15);
+    color: $accent-blue;
+    border: 1px solid rgba($accent-blue, 0.3);
+  }
+
+  &.twitter {
+    background: rgba(255, 255, 255, 0.08);
+    color: $text-primary;
+    border: 1px solid rgba(255, 255, 255, 0.2);
+  }
+
+  &.medium {
+    background: rgba(255, 255, 255, 0.08);
+    color: $text-secondary;
+    border: 1px solid rgba(255, 255, 255, 0.15);
+  }
+
+  &.github {
+    background: rgba($accent-purple, 0.15);
+    color: $accent-purple;
+    border: 1px solid rgba($accent-purple, 0.3);
+  }
+}
+
+// Footer
+.footer {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 0.75rem;
+  padding-top: 2rem;
+  margin-top: 2rem;
+  border-top: 1px solid rgba(255, 255, 255, 0.08);
+}
+
+.angular-link {
+  display: flex;
+  transition: transform 0.3s ease;
+
+  &:hover {
+    transform: scale(1.1);
+
+    .angular-logo {
+      filter: drop-shadow(0 0 20px rgba(221, 48, 49, 0.6));
+    }
+  }
+}
+
+.angular-logo {
+  fill: #dd3031;
+  transition: filter 0.3s ease;
+}
+
+.footer-text {
+  color: $text-muted;
+  font-size: 0.875rem;
+  font-weight: 500;
+}
+
+// Responsive
+@media (max-width: 640px) {
+  .page {
+    padding: 1rem;
+  }
+
+  .profile-card {
+    padding: 2rem 1.5rem;
+    border-radius: 24px;
+  }
+
+  .version-badge {
+    position: static;
+    justify-content: center;
+    margin-bottom: 1.5rem;
+  }
+
+  .name {
+    font-size: 1.75rem;
+  }
+
+  .title {
+    font-size: 1rem;
+  }
+
+  .badges {
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .books-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .book-card {
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+
+    .book-info p {
+      -webkit-line-clamp: 4;
+    }
+
+    .book-meta {
+      flex-direction: column;
+    }
+  }
+}

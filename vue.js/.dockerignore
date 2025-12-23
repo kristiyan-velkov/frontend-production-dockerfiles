@@ -1,84 +1,56 @@
-# -------------------------------
-# Dependency directories
-# -------------------------------
+# Ignore dependencies and build output
 node_modules/
-
-# -------------------------------
-# Production and build outputs
-# -------------------------------
 dist/
 out/
-build/
-public/build/
+.tmp/
+.cache/
 
-# -------------------------------
-# Vite, VuePress, and cache dirs
-# -------------------------------
+# Ignore Vite and Vue.js-specific build artifacts
 .vite/
 .vitepress/
-.cache/
-.tmp/
-
-# -------------------------------
-# Test output and coverage
-# -------------------------------
+.eslintcache
+.npm/
 coverage/
-reports/
 jest/
 cypress/
 cypress/screenshots/
 cypress/videos/
+reports/
+.vitest/
 
-# -------------------------------
-# Environment and config files
-# -------------------------------
+# Ignore environment and config files (sensitive data)
 *.env*
-!.env.production    # Keep production env if needed
-*.local
+!.env.production  # Allow production env file if needed
 *.log
 
-# -------------------------------
-# TypeScript artifacts
-# -------------------------------
+# Ignore TypeScript build artifacts (if using TypeScript)
 *.tsbuildinfo
 
-# -------------------------------
-# Editor and IDE config
-# -------------------------------
-.vscode/
-.idea/
-*.swp
-
-# -------------------------------
-# System files
-# -------------------------------
-.DS_Store
-Thumbs.db
-
-# -------------------------------
-# Lockfiles (optional)
-# -------------------------------
-package-lock.json
-yarn.lock
-pnpm-lock.yaml
+# Ignore lockfiles (optional if using Docker for package installation)
 npm-debug.log*
 yarn-debug.log*
 yarn-error.log*
 pnpm-debug.log*
 
-# -------------------------------
-# Git files
-# -------------------------------
+# Ignore local development files
 .git/
 .gitignore
+.vscode/
+.idea/
+*.swp
+.DS_Store
+Thumbs.db
 
-# -------------------------------
-# Docker-related files
-# -------------------------------
+# Ignore Docker-related files (to avoid copying unnecessary configs)
 Dockerfile
 .dockerignore
 docker-compose.yml
 docker-compose.override.yml
+compose.yml
+
+# Ignore build-specific cache files
+*.DS_Store
+*.lock
 
 # =========================================
 # # Ignore AI-related files and caches

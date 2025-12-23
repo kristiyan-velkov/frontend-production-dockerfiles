@@ -1,0 +1,15 @@
+services:
+  remix-app:
+    build:
+      context: .
+      dockerfile: Dockerfile
+      args:
+        NODE_VERSION: 24.11.1-alpine
+    image: remix-app-image
+    container_name: remix-app-container
+    environment:
+      NODE_ENV: production
+      PORT: 3000
+    ports:
+      - "3000:3000"
+    restart: unless-stopped

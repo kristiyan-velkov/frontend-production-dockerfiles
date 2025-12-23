@@ -42,30 +42,32 @@ pnpm-debug.log*
 .DS_Store
 Thumbs.db
 
-# =========================================
-# Ignore Docker-related files (to avoid copying unnecessary configs)
-# =========================================
-Dockerfile
-.dockerignore
-docker-compose.yml
-docker-compose.override.yml
 
-# =========================================
-# Ignore build-specific cache files
-# =========================================
-*.DS_Store
-*.lock
+# OS-specific junk
+.DS_Store
+._*
+.Spotlight-V100
+.Trashes
+ehthumbs.db
+Thumbs.db
+Desktop.ini
 
-# =========================================
-# # Ignore AI-related files and caches
-# =========================================
-*.ai
+# AI/ML tool metadata and configs
+.cursor/
+.cursorrules
+.copilot/
+.copilotignore
+.github/copilot/
+.gemini/
+.anthropic/
+.kiro
+.claude
+
+# AI-generated temp files
 *.aider*
+*.copilot*
 *.chatgpt*
-*.cursor/
-__pycache__/
-openai/
-kiro/
-anthropic/
-ai_outputs/
-ai_cache/
+*.claude*
+*.gemini*
+*.openai*
+*.anthropic*

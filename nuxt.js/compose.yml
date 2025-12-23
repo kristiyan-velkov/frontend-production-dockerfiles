@@ -1,0 +1,16 @@
+services:
+  nuxt-app:
+    build:
+      context: .
+      dockerfile: Dockerfile
+      args:
+        NODE_VERSION: 24.11.1-alpine
+    image: nuxt-app-image
+    container_name: nuxt-app-container
+    environment:
+      NODE_ENV: production
+      PORT: 3000
+      HOST: 0.0.0.0
+    ports:
+      - "3000:3000"
+    restart: unless-stopped

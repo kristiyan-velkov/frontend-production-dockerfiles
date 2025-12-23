@@ -18,11 +18,11 @@ RUN npm ci
 # Copy the rest of the application source code into the container
 COPY --link . .
 
-# Build the Analog.js application (outputs to /app/build)
+# Build the Nuxt.js application (outputs to /app/.output)
 RUN npm run build
 
 # =========================================
-# Stage 2: Run the Analog.js Server
+# Stage 2: Run the Nuxt.js Server
 # =========================================
 FROM node:${NODE_VERSION} AS runner
 
@@ -32,6 +32,7 @@ WORKDIR /app
 # Set environment variable for production
 ENV NODE_ENV=production
 ENV PORT=3000
+ENV HOST=0.0.0.0
 
 # Copy the built server and client assets from the builder stage
 COPY --link --from=builder /app/.output ./
@@ -39,7 +40,8 @@ COPY --link --from=builder /app/.output ./
 # Switch to the non-root user
 USER node 
 
-# Expose the application port (Analog.js typically runs on 3000)
+# Expose the application port (Nuxt.js typically runs on 3000)
 EXPOSE 3000
 
 ENTRYPOINT ["node", "server/index.mjs"]
+

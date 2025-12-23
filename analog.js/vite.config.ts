@@ -2,6 +2,7 @@
 
 import { defineConfig } from 'vite';
 import analog from '@analogjs/platform';
+import tailwindcss from '@tailwindcss/vite';
 
 // https://vitejs.dev/config/
 export default defineConfig(({ mode }) => ({
@@ -11,7 +12,23 @@ export default defineConfig(({ mode }) => ({
   resolve: {
     mainFields: ['module'],
   },
-  plugins: [analog({ vite: { experimental: { supportAnalogFormat: true } } })],
+  plugins: [
+    analog({
+      ssr: true,
+      static: false,
+      nitro: {
+        preset: 'node-server',
+        serveStatic: true,
+        externals: {
+          inline: ['zone.js/node', 'tslib'],
+        },
+      },
+      vite: {
+        inlineStylesExtension: 'css',
+      },
+    }),
+    tailwindcss()
+  ],
   test: {
     globals: true,
     environment: 'jsdom',

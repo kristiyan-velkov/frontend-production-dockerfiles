@@ -1,0 +1,16 @@
+services:
+  analog-app:
+    build:
+      context: .
+      dockerfile: Dockerfile
+      args:
+        NODE_VERSION: 24.11.1-alpine
+    image: analog-image
+    container_name: analog-container
+    environment:
+      NODE_ENV: production
+      PORT: 3000
+      HOST: 0.0.0.0
+    ports:
+      - "3000:3000"
+    restart: unless-stopped
