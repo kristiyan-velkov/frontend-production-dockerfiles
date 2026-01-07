@@ -6,6 +6,12 @@ import {
   Shield,
   Waves,
   Sparkles,
+  Globe,
+  Linkedin,
+  Twitter,
+  BookOpen,
+  Github,
+  Link as LinkIcon,
 } from 'lucide-react'
 
 export const Route = createFileRoute('/')({ component: App })
@@ -47,6 +53,39 @@ function App() {
       title: 'Next Generation Ready',
       description:
         'Built from the ground up for modern web applications. Deploy anywhere JavaScript runs.',
+    },
+  ]
+
+  const socialLinks = [
+    {
+      id: 'website',
+      label: 'Website',
+      url: 'https://kristiyanvelkov.com',
+      icon: <Globe className="w-5 h-5" />,
+    },
+    {
+      id: 'linkedin',
+      label: 'LinkedIn',
+      url: 'https://linkedin.com/in/kristiyanvelkov',
+      icon: <Linkedin className="w-5 h-5" />,
+    },
+    {
+      id: 'twitter',
+      label: 'X / Twitter',
+      url: 'https://x.com/krisvelkov',
+      icon: <Twitter className="w-5 h-5" />,
+    },
+    {
+      id: 'medium',
+      label: 'Medium',
+      url: 'https://medium.com/@kristiyanvelkov',
+      icon: <BookOpen className="w-5 h-5" />,
+    },
+    {
+      id: 'github',
+      label: 'GitHub',
+      url: 'https://github.com/kristiyan-velkov',
+      icon: <Github className="w-5 h-5" />,
     },
   ]
 
@@ -113,6 +152,60 @@ function App() {
           ))}
         </div>
       </section>
+
+      {/* Connect With Me Section */}
+      <section className="py-16 px-6 max-w-4xl mx-auto">
+        <div className="text-center mb-10">
+          <div className="flex items-center justify-center gap-3 mb-4">
+            <LinkIcon className="w-6 h-6 text-cyan-400" />
+            <h2 className="text-3xl font-bold text-white">Connect With Me</h2>
+          </div>
+          <p className="text-gray-400">
+            Follow me for more Docker, DevOps, and frontend development content
+          </p>
+        </div>
+
+        <div className="flex flex-wrap justify-center gap-4">
+          {socialLinks.map((link) => (
+            <a
+              key={link.id}
+              href={link.url}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="flex items-center gap-3 px-6 py-3 bg-slate-800/70 border border-slate-700 rounded-xl hover:border-cyan-500/50 hover:bg-slate-700/70 transition-all duration-300 hover:shadow-lg hover:shadow-cyan-500/10 group"
+            >
+              <span className="text-gray-400 group-hover:text-cyan-400 transition-colors">
+                {link.icon}
+              </span>
+              <span className="text-gray-300 group-hover:text-white transition-colors font-medium">
+                {link.label}
+              </span>
+            </a>
+          ))}
+        </div>
+      </section>
+
+      {/* Footer */}
+      <footer className="py-8 px-6 border-t border-slate-800">
+        <div className="max-w-4xl mx-auto flex flex-col items-center gap-4">
+          <a
+            href="https://tanstack.com/start"
+            target="_blank"
+            rel="noopener noreferrer"
+            className="flex items-center gap-3 hover:opacity-80 transition-opacity"
+          >
+            <img
+              src="/tanstack-circle-logo.png"
+              alt="TanStack Logo"
+              className="w-10 h-10"
+            />
+          </a>
+          <p className="text-gray-500 text-sm">
+            Built with{' '}
+            <span className="text-cyan-400 font-medium">TanStack Start</span>
+          </p>
+        </div>
+      </footer>
     </div>
   )
 }

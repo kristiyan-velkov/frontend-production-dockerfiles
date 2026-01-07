@@ -1,44 +1,157 @@
-# Dependencies
-node_modules/
+# =============================================
+# TanStack Start Production .dockerignore
+# Optimized for minimal build context & security
+# =============================================
 
-# Build outputs
+# -----------------------------------------
+# Dependencies (installed fresh in Docker)
+# -----------------------------------------
+node_modules/
+.npm/
+.pnpm-store/
+.yarn/
+
+# -----------------------------------------
+# Build Outputs (regenerated during build)
+# -----------------------------------------
 .output/
 .nitro/
+.vinxi/
 dist/
+build/
+out/
 
-# Development files
+# -----------------------------------------
+# Vite & Bundler Cache
+# -----------------------------------------
+.vite/
+.vitepress/
+*.tsbuildinfo
+.turbo/
+.parcel-cache/
+
+# -----------------------------------------
+# Test & Coverage Files
+# -----------------------------------------
+coverage/
+__tests__/
+*.test.ts
+*.test.tsx
+*.spec.ts
+*.spec.tsx
+vitest.config.*
+jest.config.*
+cypress/
+playwright/
+playwright-report/
+test-results/
+
+# -----------------------------------------
+# Development & Debug Files
+# -----------------------------------------
 *.log
-.DS_Store
 *.local
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+pnpm-debug.log*
+.eslintcache
 
-# IDE
+# -----------------------------------------
+# Environment & Secrets (SECURITY)
+# -----------------------------------------
+.env
+.env.*
+!.env.example
+*.pem
+*.key
+*.crt
+secrets/
+.secrets/
+
+# -----------------------------------------
+# IDE & Editor Files
+# -----------------------------------------
 .idea/
 .vscode/
 *.swp
 *.swo
+*~
+*.sublime-*
 
-# Environment files
-.env
-.env.*
-!.env.example
+# -----------------------------------------
+# OS Generated Files
+# -----------------------------------------
+.DS_Store
+.DS_Store?
+._*
+Thumbs.db
+ehthumbs.db
+Desktop.ini
 
-# Test files
-coverage/
-__tests__/
-*.test.*
-*.spec.*
-
-# Git
+# -----------------------------------------
+# Version Control
+# -----------------------------------------
 .git/
 .gitignore
+.gitattributes
+.github/
+.gitlab/
+.hg/
+.svn/
 
-# Docker files (not needed in build context)
+# -----------------------------------------
+# Docker Files (not needed in build context)
+# -----------------------------------------
 Dockerfile*
 docker-compose*.yml
 compose*.yml
-Makefile
-Taskfile.yml
 .dockerignore
 
+# -----------------------------------------
+# Task Runners & Build Scripts
+# -----------------------------------------
+Makefile
+Taskfile.yml
+Taskfile.yaml
+Justfile
 
+# -----------------------------------------
+# Documentation (not needed in production)
+# -----------------------------------------
+README.md
+README*
+CHANGELOG*
+CONTRIBUTING*
+LICENSE*
+docs/
+*.md
 
+# -----------------------------------------
+# AI & Development Tools
+# -----------------------------------------
+*.ai
+*.aider*
+*.chatgpt*
+.cursor/
+.copilot/
+__pycache__/
+openai/
+kiro/
+anthropic/
+ai_outputs/
+ai_cache/
+.claude/
+
+# -----------------------------------------
+# Misc Development Files
+# -----------------------------------------
+*.map
+*.d.ts.map
+.editorconfig
+.prettierrc*
+.eslintrc*
+eslint.config.*
+prettier.config.*
+tsconfig.*.json
+!tsconfig.json
