@@ -21,8 +21,8 @@ These Dockerfiles are optimized for **performance, security, and minimal image s
 
 | Framework             | Version            | Directory         |
 | --------------------- | ------------------ | ----------------- |
-| ✅ **React.js**       | v19.2              | `react.js/`       |
-| ✅ **Next.js**        | v16                | `next.js/`        |
+| ✅ **React.js**       | v19.2.3            | `react.js/`       |
+| ✅ **Next.js**        | v16.1.1            | `next.js/`        |
 | ✅ **Remix.js**       | React Router v7.10 | `remix.js/`       |
 | ✅ **TanStack Start** | v1.132             | `tanstack-start/` |
 | ✅ **Angular**        | v21                | `angular/`        |
