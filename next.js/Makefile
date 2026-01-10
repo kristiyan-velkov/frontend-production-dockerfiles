@@ -5,7 +5,7 @@ CONTAINER_NAME = next-js-app-container
 HOST_PORT = 3000
 CONTAINER_PORT = 8080
 DOCKERFILE = Dockerfile.export
-NODE_VERSION = 24.11.1-alpine
+NODE_VERSION = 24.12.0-alpine
 NGINX_VERSION = alpine3.22
 NODE_ENV=production
 
