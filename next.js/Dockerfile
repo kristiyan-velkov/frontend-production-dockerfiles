@@ -1,14 +1,14 @@
 # ============================================
 # Base Stage: Use a Lightweight Node.js Image
 # ============================================
-ARG NODE_VERSION=24.11.1-alpine
+ARG NODE_VERSION=24.12.0-alpine
 FROM node:${NODE_VERSION} AS base
 
 # Set the working directory inside the container
 WORKDIR /app
 
 # Copy only package-related files first to leverage Docker caching
-COPY --link package.json package-lock.json ./
+COPY --link package.json package-lock.json* ./
 
 # Set build-time environment variables
 ENV NODE_ENV=production
