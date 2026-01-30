@@ -7,7 +7,6 @@ These Dockerfiles are optimized for **performance, security, and minimal image s
 **Author**
 
 - [Kristiyan Velkov](https://www.linkedin.com/in/kristiyan-velkov-763130b3/)
-- [Blog - Medium](https://medium.com/@kristiyanvelkov)
 
 ## Features
 
