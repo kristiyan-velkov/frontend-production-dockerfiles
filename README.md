@@ -80,8 +80,6 @@ To use the commands in the table below, you need [Docker Desktop](https://www.do
 _or if you prefer Make_:
 
 - [Make](https://en.wikipedia.org/wiki/Make_(software)) — for Makefile commands.
-- [Task](https://taskfile.dev/installation/) installed to use the Task commands.
-- [Make](https://en.wikipedia.org/wiki/Make_(software)) installed to use the Makefile commands.
 
 ---
 
