@@ -1,42 +1,39 @@
-<div align="center">
-
-# Front-end Production Dockerfile
-
-
 
 ![Front-end Production Dockerfile](images/project-logo.png)
 
 
-Production-ready **Dockerfiles** for **React.js**, **Angular**, **Vue.js**, **Next.js**, **Remix.js** (React Router), **TanStack Start**, **Analog.js**, and **Nuxt.js**—tuned for **performance**, **security**, and **minimal image size** for efficient, scalable deployments.
+Production-ready Dockerfiles for **React.js**, **Angular**, **Vue.js**, **Next.js**, **Remix**, **TanStack Start**, **Analog**, and **Nuxt** — built with security, performance, and proven Docker best practices.
+
+Ready-to-use, production-grade setups for modern front-end apps. Use them as-is, adapt when needed, and deploy with confidence — each follows established Docker standards and best practices. 
+
+**Author**: [Kristiyan Velkov](https://www.linkedin.com/in/kristiyan-velkov-763130b3/) — person behind official Docker guides for [React.js](https://docs.docker.com/guides/reactjs/), [Angular](https://docs.docker.com/guides/angular/), [Vue.js](https://docs.docker.com/guides/vuejs/), [Node.js](https://docs.docker.com/guides/nodejs/), and more.
 
 </div>
 
-👨‍💻 **Author:**  [Kristiyan Velkov](https://www.linkedin.com/in/kristiyan-velkov-763130b3/) - person behind the official Docker guides for [React.js](https://docs.docker.com/guides/reactjs/), [Angular](https://docs.docker.com/guides/angular/), [Vue.js](https://docs.docker.com/guides/vuejs/), [Node.js](https://docs.docker.com/guides/nodejs/), and more. 
+--- 
 
-I created this open-source repository after seeing many teams struggle to dockerize front-end applications the right way. These production-ready Dockerfiles are my way of supporting the community and bridging the gap between Front-end and DevOps. 
+### Features
+
+- **Optimized for Production** – Ensures smaller, faster, and more secure images.
+- **Security Best Practices** – Uses non-root users and follows Docker security guidelines.
+- **Multi-Stage Builds** – Reduces final image size by separating build and runtime environments.
+- **Efficient Caching** – Utilizes layer caching to speed up builds.
+- **Minimal Base Images** – Uses lightweight images like `alpine` to reduce attack surface.
+
+### Supported Frameworks / Libraries
+
+| Framework             | Version            | Directory         | Port |
+| --------------------- | ------------------ | ---------------- | ---- |
+| ✅ **React.js**       | v19.2.3            | `react.js/`       | 8080 |
+| ✅ **Next.js**        | v16.1.1            | `next.js/`        | 3000 |
+| ✅ **Remix.js**       | React Router v7.10 | `remix.js/`       | 3000 |
+| ✅ **TanStack Start** | v1.132             | `tanstack-start/` | 3000 |
+| ✅ **Angular**        | v21                | `angular/`        | 8080 |
+| ✅ **Analog.js**      | v2.2 (Angular 21)  | `analog.js/`      | 3000 |
+| ✅ **Vue.js**         | v3.5               | `vue.js/`         | 8080 |
+| ✅ **Nuxt.js**        | v4.2               | `nuxt.js/`        | 3000 |
 
 ---
-
-## Features
-
-- 🛠 **Optimized for Production** – Ensures smaller, faster, and more secure images.
-- 🔒 **Security Best Practices** – Uses non-root users and follows Docker security guidelines.
-- ⚡ **Multi-Stage Builds** – Reduces final image size by separating build and runtime environments.
-- 🚀 **Efficient Caching** – Utilizes layer caching to speed up builds.
-- 📦 **Minimal Base Images** – Uses lightweight images like `alpine` to reduce attack surface.
-
-## Supported Frameworks / Libraries
-
-| Framework             | Version            | Directory         |
-| --------------------- | ------------------ | ----------------- |
-| ✅ **React.js**       | v19.2.3            | `react.js/`       |
-| ✅ **Next.js**        | v16.1.1            | `next.js/`        |
-| ✅ **Remix.js**       | React Router v7.10 | `remix.js/`       |
-| ✅ **TanStack Start** | v1.132             | `tanstack-start/` |
-| ✅ **Angular**        | v21                | `angular/`        |
-| ✅ **Analog.js**      | v2.2 (Angular 21)  | `analog.js/`      |
-| ✅ **Vue.js**         | v3.5               | `vue.js/`         |
-| ✅ **Nuxt.js**        | v4.2               | `nuxt.js/`        |
 
 ## Getting Started
 
@@ -81,9 +78,8 @@ _or if you prefer Make_:
 
 - [Make](https://en.wikipedia.org/wiki/Make_(software)) — for Makefile commands.
 
----
 
-## Usage
+### Usage
 
 | Taskfile Command       | Makefile Command       | Description                          |
 | ---------------------- | ---------------------- | ------------------------------------ |
@@ -116,46 +112,39 @@ The following variables are defined in the `Taskfile` and `Makefile` and can be 
 
 ---
 
-## Port Reference
-
-| Framework          | Default Port | Server Type    |
-| ------------------ | ------------ | -------------- |
-| **React.js**       | 8080         | Nginx (static) |
-| **Angular**        | 8080         | Nginx (static) |
-| **Vue.js**         | 8080         | Nginx (static) |
-| **Next.js**        | 3000         | Node.js (SSR)  |
-| **Nuxt.js**        | 3000         | Node.js (SSR)  |
-| **Analog.js**      | 3000         | Node.js (SSR)  |
-| **Remix.js**       | 3000         | Node.js (SSR)  |
-| **TanStack Start** | 3000         | Node.js (SSR)  |
-
----
-
-### 📌 Contribution
+## 📌 Contribution
 
 Contributions are always welcome, whether it's reporting issues, improving documentation, fixing bugs, or adding new features. This project is for everyone! 💙
-And yes, it's open-source! 🎉
 
 ---
 
-### ☕ Support My Work
+## 🕵️‍♂️ Why this repository exists
 
-If you find my work helpful and would like to support me, consider donating via:
+As a front-end developer, author of the official Docker front-end guides, book author, and technical speaker, I’ve repeatedly seen the same problems across teams and projects: over-engineered Dockerfiles, inefficient caching, insecure images running as root, bloated production builds, and documentation copied without understanding the trade-offs.
+
+This repository exists to address those issues by providing **clear, production-ready Dockerfiles** that reflect how front-end applications are actually built, shipped, and maintained in real environments.
+
+**The goal:** bridge the gap between front-end developers and DevOps by offering practical, trustworthy Docker setups that can be used directly, understood easily, and adapted with confiden.
+
+---
+
+## ☕ Support My Work
+
+If you find this useful, consider giving the repo a **⭐️ star** — it helps others discover it.
+
+If you'd like to support me further, you can donate via:
 
 - [Revolut](https://revolut.me/kristiyanvelkov)
 - [Buy Me a Coffee](https://www.buymeacoffee.com/kristiyanvelkov)
 - [GitHub Sponsors](https://github.com/sponsors/kristiyan-velkov)
 
-Your support helps me continue creating valuable content for the community. Thank you! 🚀
+Your support helps me continue creating valuable content for the community. Thank you!
 
 ---
 
-### 📬 Contact me
+## 📬 Contact me
 
 If you'd like to connect, feel free to reach out via:
 
 - [LinkedIn](https://www.linkedin.com/in/kristiyan-velkov-763130b3/)
 - [X.com](https://x.com/krisvelkov)
-
-Looking forward to chatting with you! 🚀
-
