@@ -1,12 +1,21 @@
-# Frontend Prod Dockerfiles
+<div align="center">
 
-Production-ready **Dockerfiles** for **React.js, Angular, Vue.js, Next.js, Remix.js (React Router), TanStack Start, Analog.js, Nuxt.js** applications.
+# Front-end Production Dockerfile
 
-These Dockerfiles are optimized for **performance, security, and minimal image size** to ensure efficient and scalable deployments.
 
-**Author**
 
-- [Kristiyan Velkov](https://www.linkedin.com/in/kristiyan-velkov-763130b3/)
+![Front-end Production Dockerfile](images/project-logo.png)
+
+
+Production-ready **Dockerfiles** for **React.js**, **Angular**, **Vue.js**, **Next.js**, **Remix.js** (React Router), **TanStack Start**, **Analog.js**, and **Nuxt.js**—tuned for **performance**, **security**, and **minimal image size** for efficient, scalable deployments.
+
+</div>
+
+👨‍💻 **Author:**  [Kristiyan Velkov](https://www.linkedin.com/in/kristiyan-velkov-763130b3/) - person behind the official Docker guides for [React.js](https://docs.docker.com/guides/reactjs/), [Angular](https://docs.docker.com/guides/angular/), [Vue.js](https://docs.docker.com/guides/vuejs/), [Node.js](https://docs.docker.com/guides/nodejs/), and more. 
+
+I created this open-source repository after seeing many teams struggle to dockerize front-end applications the right way. These production-ready Dockerfiles are my way of supporting the community and bridging the gap between Front-end and DevOps. 
+
+---
 
 ## Features
 
@@ -40,14 +49,37 @@ cd frontend-dockerfiles/<framework>
 
 ---
 
-## Prerequisites
+## Docker Compose
 
-- [Docker Desktop](https://www.docker.com/products/docker-desktop/) installed on your machine.
-- [Task](https://taskfile.dev/installation/) installed to use the Task commands.
+Each project includes a `compose.yml` file. To build and run with Docker Compose, navigate to the framework folder, then:
+
+```sh
+docker compose up --build
+```
+
+To run in the background (detached):
+
+```sh
+docker compose up --build -d
+```
+
+To stop and remove containers:
+
+```sh
+docker compose down
+```
+
+---
+
+## Task or Make
+
+To use the commands in the table below, you need [Docker Desktop](https://www.docker.com/products/docker-desktop/) and either:
+
+- [Task](https://taskfile.dev/installation/) — for Taskfile commands.
 
 _or if you prefer Make_:
 
-- [Make](<https://en.wikipedia.org/wiki/Make_(software)>) installed to use the Makefile commands.
+- [Make](https://en.wikipedia.org/wiki/Make_(software)) — for Makefile commands.
 
 ---
 
@@ -127,8 +159,3 @@ If you'd like to connect, feel free to reach out via:
 
 Looking forward to chatting with you! 🚀
 
----
-
-### License
-
-This project is licensed under the MIT License.
