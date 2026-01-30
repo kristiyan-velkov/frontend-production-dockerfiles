@@ -2,51 +2,53 @@
 ![Front-end Production Dockerfile](images/project-logo.png)
 
 
-Production-ready Dockerfiles for **React.js**, **Angular**, **Vue.js**, **Next.js**, **Remix**, **TanStack Start**, **Analog**, and **Nuxt** — built with security, performance, and proven Docker best practices.
+Production-ready Dockerfiles for **React**, **Angular**, **Vue**, **Next.js**, **Remix**, **TanStack Start**, **Analog**, and **Nuxt** — built for:
 
-Ready-to-use, production-grade setups for modern front-end apps. Use them as-is, adapt when needed, and deploy with confidence — each follows established Docker standards and best practices. 
+- 🛠 **Production** — Small, fast, predictable images for real-world deployment.
+- 🔒 **Security** — Non-root users, pinned base image tags, and Docker-recommended hardening.
+- ⚡ **Efficient builds** — Multi-stage builds and layer ordering for faster rebuilds and reliable CI/CD.
 
-**Author**: [Kristiyan Velkov](https://www.linkedin.com/in/kristiyan-velkov-763130b3/) — person behind official Docker guides for [React.js](https://docs.docker.com/guides/reactjs/), [Angular](https://docs.docker.com/guides/angular/), [Vue.js](https://docs.docker.com/guides/vuejs/), [Node.js](https://docs.docker.com/guides/nodejs/), and more.
+**Author**: [Kristiyan Velkov](https://www.linkedin.com/in/kristiyan-velkov-763130b3/) — Docker Captain, author of the official Docker guides for [React.js](https://docs.docker.com/guides/reactjs/), [Angular](https://docs.docker.com/guides/angular/), [Vue.js](https://docs.docker.com/guides/vuejs/), [Node.js](https://docs.docker.com/guides/nodejs/), and more.
 
 </div>
 
 --- 
 
-### Features
 
-- **Optimized for Production** – Ensures smaller, faster, and more secure images.
-- **Security Best Practices** – Uses non-root users and follows Docker security guidelines.
-- **Multi-Stage Builds** – Reduces final image size by separating build and runtime environments.
-- **Efficient Caching** – Utilizes layer caching to speed up builds.
-- **Minimal Base Images** – Uses lightweight images like `alpine` to reduce attack surface.
 
 ### Supported Frameworks / Libraries
 
 | Framework             | Version            | Directory         | Port |
 | --------------------- | ------------------ | ---------------- | ---- |
-| ✅ **React.js**       | v19.2.3            | `react.js/`       | 8080 |
-| ✅ **Next.js**        | v16.1.1            | `next.js/`        | 3000 |
+| ✅ **React.js**       | v19.2.3            | `react.js`       | 8080 |
+| ✅ **Next.js**        | v16.1.1            | `next.js`        | 3000 |
 | ✅ **Remix.js**       | React Router v7.10 | `remix.js/`       | 3000 |
 | ✅ **TanStack Start** | v1.132             | `tanstack-start/` | 3000 |
 | ✅ **Angular**        | v21                | `angular/`        | 8080 |
-| ✅ **Analog.js**      | v2.2 (Angular 21)  | `analog.js/`      | 3000 |
-| ✅ **Vue.js**         | v3.5               | `vue.js/`         | 8080 |
-| ✅ **Nuxt.js**        | v4.2               | `nuxt.js/`        | 3000 |
+| ✅ **Analog.js**      | v2.2 (Angular 21)  | `analog.js`      | 3000 |
+| ✅ **Vue.js**         | v3.5               | `vue.js`         | 8080 |
+| ✅ **Nuxt.js**        | v4.2               | `nuxt.js`        | 3000 |
+
+
+
+
 
 ---
 
 ## Getting Started
 
-Clone the repository and navigate to the desired framework directory:
+### 1. Clone the repository
+
+Clone the repo and go to the framework folder you need:
 
 ```sh
-git clone https://github.com/kristiyan-velkov/frontend-dockerfiles.git
-cd frontend-dockerfiles/<framework>
+git clone https://github.com/kristiyan-velkov/frontend-production-dockerfiles.git
+cd frontend-production-dockerfiles/<framework>
 ```
 
 ---
 
-## Docker Compose
+### 2. Docker Compose
 
 Each project includes a `compose.yml` file. To build and run with Docker Compose, navigate to the framework folder, then:
 
@@ -68,7 +70,7 @@ docker compose down
 
 ---
 
-## Task or Make
+### 3. Task or Make
 
 To use the commands in the table below, you need [Docker Desktop](https://www.docker.com/products/docker-desktop/) and either:
 
@@ -79,7 +81,7 @@ _or if you prefer Make_:
 - [Make](https://en.wikipedia.org/wiki/Make_(software)) — for Makefile commands.
 
 
-### Usage
+#### 3.1 Usage
 
 | Taskfile Command       | Makefile Command       | Description                          |
 | ---------------------- | ---------------------- | ------------------------------------ |
@@ -94,9 +96,9 @@ _or if you prefer Make_:
 | `task clean-container` | `make clean-container` | Remove only the Docker container.    |
 | `task clean-image`     | `make clean-image`     | Remove only the Docker image.        |
 
----
 
-### Environment Variables
+
+#### 3.2 Environment Variables
 
 The following variables are defined in the `Taskfile` and `Makefile` and can be customized if needed:
 
@@ -118,7 +120,7 @@ Contributions are always welcome, whether it's reporting issues, improving docum
 
 ---
 
-## 🕵️‍♂️ Why this repository exists
+## 🕵️‍♂️ Why this repository exists?
 
 As a front-end developer, author of the official Docker front-end guides, book author, and technical speaker, I’ve repeatedly seen the same problems across teams and projects: over-engineered Dockerfiles, inefficient caching, insecure images running as root, bloated production builds, and documentation copied without understanding the trade-offs.
 
