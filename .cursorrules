@@ -1,0 +1,10 @@
+# Project rules for AI assistants (Cursor, VS Code, and others)
+
+When editing Dockerfiles or Docker Compose files in this repo, follow the project standards so changes stay consistent with the rest of the codebase.
+
+## Docker and Compose
+
+- **Dockerfiles** (`Dockerfile`, `Dockerfile.*`): Follow [docs/DOCKERFILE_STANDARDS.md](docs/DOCKERFILE_STANDARDS.md). Use multi-stage builds, ARG for versions, COPY --link, non-root USER (nginx or node), and the same structure as in react.js, vue.js, angular, next.js, nuxt.js, remix.js, analog.js, and tanstack-start.
+- **Compose** (`compose.yml`, `docker-compose.yml`): Follow [docs/DOCKER_COMPOSE_STANDARDS.md](docs/DOCKER_COMPOSE_STANDARDS.md). Use kebab-case service names, build.args (NODE_VERSION, NGINX_VERSION, APP_NAME where needed), image/container_name suffix convention, restart: unless-stopped, and the same port/env patterns as in existing compose files.
+
+Apply these standards in Cursor, VS Code, or any other editor/AI that has access to this repo.
