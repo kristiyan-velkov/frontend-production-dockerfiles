@@ -5,7 +5,7 @@ CONTAINER_NAME = angular-container
 HOST_PORT = 8080
 CONTAINER_PORT = 8080
 DOCKERFILE = Dockerfile
-NODE_VERSION = 24.12.0-alpine
+NODE_VERSION = 24.14.0-alpine
 NGINX_VERSION = alpine3.22
 APP_NAME = angular
 
