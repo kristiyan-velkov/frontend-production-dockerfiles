@@ -1,7 +1,7 @@
 # =========================================
 # Stage 1: Build the Nuxt.js Application
 # =========================================
-ARG NODE_VERSION=24.12.0-alpine
+ARG NODE_VERSION=24.14.0-alpine
 
 # Use a lightweight Node.js image for building (customizable via ARG)
 FROM node:${NODE_VERSION} AS builder
@@ -10,13 +10,13 @@ FROM node:${NODE_VERSION} AS builder
 WORKDIR /app
 
 # Copy package-related files first to leverage Docker's caching mechanism
-COPY --link package.json package-lock.json* ./
+COPY package.json package-lock.json* ./
 
 # Install project dependencies using npm ci (ensures a clean, reproducible install)
 RUN npm ci
 
 # Copy the rest of the application source code into the container
-COPY --link . .
+COPY . .
 
 # Build the Nuxt.js application (outputs to /app/.output)
 RUN npm run build
@@ -35,7 +35,7 @@ ENV PORT=3000
 ENV HOST=0.0.0.0
 
 # Copy the built server and client assets from the builder stage
-COPY --link --from=builder /app/.output ./
+COPY --from=builder /app/.output ./
 
 # Switch to the non-root user
 USER node 

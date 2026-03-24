@@ -7,7 +7,7 @@ This file helps AI assistants give consistent suggestions in this project. When 
 Follow the full standards in **[docs/DOCKERFILE_STANDARDS.md](../docs/DOCKERFILE_STANDARDS.md)**. In short:
 
 - Multi-stage build: `builder` + `runner` (optional `base`).
-- ARG at top: `NODE_VERSION=24.12.0-alpine`, and for static apps `NGINX_VERSION=alpine3.22`.
+- ARG at top: `NODE_VERSION=24.14.0-alpine`, and for static apps `NGINX_VERSION=alpine3.22`.
 - `WORKDIR /app`; copy `package.json` / `package-lock.json*` first; `RUN npm ci` then `COPY . .` and `RUN npm run build`.
 - Static/SPA runner: `nginxinc/nginx-unprivileged`, copy build to `/usr/share/nginx/html`, `USER nginx`, `EXPOSE 8080`; use an app `nginx.conf` with `pid /tmp/nginx.pid`, `listen 8080`, gzip, and SPA `try_files`.
 - Node/SSR runner: copy only needed artifacts, `ENV NODE_ENV=production PORT=3000`, `USER node`, `EXPOSE 3000`.

@@ -1,14 +1,14 @@
 # ============================================
 # Base Stage: Use a Lightweight Node.js Image
 # ============================================
-ARG NODE_VERSION=24.12.0-alpine
+ARG NODE_VERSION=24.14.0-alpine
 FROM node:${NODE_VERSION} AS base
 
 # Set the working directory inside the container
 WORKDIR /app
 
 # Copy only package-related files first to leverage Docker caching
-COPY --link package.json package-lock.json* ./
+COPY package.json package-lock.json* ./
 
 # Set build-time environment variables
 ENV NODE_ENV=production
@@ -22,7 +22,7 @@ RUN npm ci --omit=dev && npm cache clean --force
 FROM base AS builder
 
 # Copy the entire application source code into the container
-COPY --link . .
+COPY . .
 
 # Build the application in standalone mode (outputs to `.next/standalone`)
 RUN npm run build
@@ -42,9 +42,9 @@ ENV NEXT_TELEMETRY_DISABLED=1
 WORKDIR /app
 
 # Copy only necessary files from the builder stage to keep the image minimal
-COPY --link --from=builder /app/.next/standalone ./      
-COPY --link --from=builder /app/.next/static ./.next/static
-COPY --link --from=builder /app/public ./public     
+COPY --from=builder /app/.next/standalone ./      
+COPY --from=builder /app/.next/static ./.next/static
+COPY --from=builder /app/public ./public     
 
 # Use a built-in non-root user for security best practices
 USER node

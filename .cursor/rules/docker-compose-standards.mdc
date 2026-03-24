@@ -16,7 +16,7 @@ Follow these patterns when creating or editing Compose files in this project. Th
 
 - `build.context: .`
 - `build.dockerfile: Dockerfile` (or explicit `Dockerfile.standalone`, `Dockerfile.export`, etc. when multiple Dockerfiles exist).
-- `build.args`: pass the same ARGs the Dockerfile expects. Always include `NODE_VERSION` (e.g. `24.12.0-alpine`). For static/SPA include `NGINX_VERSION: alpine3.22`. For Angular include `APP_NAME` when the Dockerfile uses it (e.g. `APP_NAME: angular`).
+- `build.args`: pass the same ARGs the Dockerfile expects. Always include `NODE_VERSION` (e.g. `24.14.0-alpine`). For static/SPA include `NGINX_VERSION: alpine3.22`. For Angular include `APP_NAME` when the Dockerfile uses it (e.g. `APP_NAME: angular`).
 
 ## Image and container
 
@@ -38,6 +38,6 @@ Follow these patterns when creating or editing Compose files in this project. Th
 
 ## Avoid
 
-- Do **not** use unpinned image tags in `build.args` (e.g. avoid `NODE_VERSION: latest`); use explicit versions like `24.12.0-alpine`.
+- Do **not** use unpinned image tags in `build.args` (e.g. avoid `NODE_VERSION: latest`); use explicit versions like `24.14.0-alpine`.
 - Do **not** omit `restart: unless-stopped` for production-oriented services.
 - Do **not** add volumes or extra services (e.g. DB) unless the app actually needs them; keep the file minimal and focused.

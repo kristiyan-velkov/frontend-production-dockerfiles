@@ -27,7 +27,7 @@
     "vue-router": "^4.6.4"
   },
   "engines": {
-    "node": ">=24.11.1"
+    "node": ">=24.14.0"
   },
   "packageManager": "npm@10.9.3"
 }

@@ -4,7 +4,7 @@ services:
       context: .
       dockerfile: Dockerfile.export
       args:
-        NODE_VERSION: 24.11.1-slim
+        NODE_VERSION: 24.14.0-slim
         NGINXINC_IMAGE_TAG: alpine3.22
     image: nextjs-static-export-image
     container_name: nextjs-static-export-container
@@ -19,7 +19,7 @@ services:
       context: .
       dockerfile: Dockerfile.serve
       args:
-        NODE_VERSION: 24.11.1-slim
+        NODE_VERSION: 24.14.0-slim
     image: nextjs-static-export-serve-image
     container_name: nextjs-static-export-serve-container
     environment:
@@ -34,7 +34,7 @@ services:
       context: .
       dockerfile: Dockerfile.standalone
       args:
-        NODE_VERSION: 24.11.1-slim
+        NODE_VERSION: 24.14.0-slim
     image: nextjs-standalone-image
     container_name: nextjs-standalone-container
     environment:

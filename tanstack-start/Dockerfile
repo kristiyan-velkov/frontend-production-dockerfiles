@@ -1,7 +1,7 @@
 # =========================================
 # Stage 1: Build the TanStack Start Application
 # =========================================
-ARG NODE_VERSION=24.12.0-alpine
+ARG NODE_VERSION=24.14.0-alpine
 
 # Use a lightweight Node.js image for building (customizable via ARG)
 FROM node:${NODE_VERSION} AS builder
