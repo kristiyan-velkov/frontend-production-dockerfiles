@@ -7,10 +7,10 @@ import {
   Waves,
   Sparkles,
   Globe,
-  Linkedin,
-  Twitter,
+  Briefcase,
+  AtSign,
   BookOpen,
-  Github,
+  CodeXml,
   Link as LinkIcon,
 } from 'lucide-react'
 
@@ -67,13 +67,13 @@ function App() {
       id: 'linkedin',
       label: 'LinkedIn',
       url: 'https://linkedin.com/in/kristiyanvelkov',
-      icon: <Linkedin className="w-5 h-5" />,
+      icon: <Briefcase className="w-5 h-5" />,
     },
     {
       id: 'twitter',
       label: 'X / Twitter',
       url: 'https://x.com/krisvelkov',
-      icon: <Twitter className="w-5 h-5" />,
+      icon: <AtSign className="w-5 h-5" />,
     },
     {
       id: 'medium',
@@ -85,7 +85,7 @@ function App() {
       id: 'github',
       label: 'GitHub',
       url: 'https://github.com/kristiyan-velkov',
-      icon: <Github className="w-5 h-5" />,
+      icon: <CodeXml className="w-5 h-5" />,
     },
   ]
 
