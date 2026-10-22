@@ -10,7 +10,7 @@ Follow these patterns when creating or editing Dockerfiles in this project. They
 
 ## Build stage (builder)
 
-- Declare build-time versions as **ARG at the top**: `NODE_VERSION=24.14.0-alpine`; for static/SPA add `NGINX_VERSION=alpine3.22`. Use these in `FROM` so they can be overridden at build time.
+- Declare build-time versions as **ARG at the top**: `NODE_VERSION=24.22.1-alpine`; for static/SPA add `NGINX_VERSION=alpine3.22`. Use these in `FROM` so they can be overridden at build time.
 - Set `WORKDIR /app`.
 - Copy dependency files first for better cache: `COPY package.json package-lock.json* ./` (use `--link` for BuildKit).
 - Install with `RUN npm ci` (or `npm ci --omit=dev` in a base stage when applicable). Optionally use `RUN --mount=type=cache,target=/root/.npm npm ci` for npm cache; optionally `npm cache clean --force` after install where you use `--omit=dev`.
@@ -56,7 +56,7 @@ Copy from an existing framework (e.g. `react.js/nginx.conf`) and adjust `server_
 ## Avoid
 
 - Do **not** run the runner stage as root: always `USER nginx` or `USER node`.
-- Do **not** use unpinned tags (e.g. `node:latest`, `nginx:latest`); use explicit versions like `24.14.0-alpine`, `alpine3.22`.
+- Do **not** use unpinned tags (e.g. `node:latest`, `nginx:latest`); use explicit versions like `24.22.1-alpine`, `alpine3.22`.
 - Do **not** copy `node_modules` or build tools into the runner stage; copy only runtime artifacts.
 - Do **not** leave devDependencies in the runner image unless the process needs them to run.
 - Do **not** skip `.dockerignore`; it keeps builds fast and secure.
@@ -65,5 +65,5 @@ Copy from an existing framework (e.g. `react.js/nginx.conf`) and adjust `server_
 
 - Prefer `COPY --link` (and `--from=builder` with `--link` where supported) for better layer caching.
 - Always run as non-root in runner: `USER nginx` or `USER node`.
-- Use Alpine/slim base images and pinned tags (e.g. `24.14.0-alpine`, `alpine3.22`) for smaller, reproducible images.
+- Use Alpine/slim base images and pinned tags (e.g. `24.22.1-alpine`, `alpine3.22`) for smaller, reproducible images.
 - Keep runner minimal: no build tools or dev deps unless necessary to run the app.
