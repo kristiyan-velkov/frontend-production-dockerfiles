@@ -1,7 +1,7 @@
 # ============================================
 # Base Stage: Use a Lightweight Node.js Image
 # ============================================
-ARG NODE_VERSION=24.14.0-alpine
+ARG NODE_VERSION=24.22.1-alpine
 FROM node:${NODE_VERSION} AS base
 
 # Set the working directory inside the container

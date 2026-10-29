@@ -5,7 +5,7 @@ CONTAINER_NAME = nuxtjs-container
 HOST_PORT = 3000
 CONTAINER_PORT = 3000
 DOCKERFILE = Dockerfile
-NODE_VERSION = 24.14.0-alpine
+NODE_VERSION = 24.22.1-alpine
 
 # Default target
 .PHONY: help
